@@ -4,7 +4,7 @@ Formato en `FORMATO.md`. IDs estables: cítalos por ID, no reexpliques el concep
 
 ## Nodos
 
-N01 ≡ El drift es inestimable in-fill: I(μ)=T/σ² no depende de la frecuencia. Girsanov — cambiar μ da medidas equivalentes, cambiar σ las da singulares. SE(μ̂)=σ/√T es un suelo, no una elección   [C01·A2] w=.96
+N01 ≡ El drift es inestimable in-fill: I(μ)=T/σ² no depende de la frecuencia. Girsanov — cambiar μ da medidas equivalentes, cambiar σ las da singulares. SE(μ̂)=σ/√T es un suelo, no una elección   [C01·A2] w=.97
 N02 ≡ Invariante adimensional R(H)=√(H/T_eff)=epistémico/aleatorio. Sin σ ni μ dentro. H*=T_eff es donde R=1 y el error de estimar supera a la aleatoriedad   [C01·A1,A2 ⊕] w=.93
 N03 ≡ n_eff=T/H (no T·252) gobierna TODA falsabilidad. T_req≈11,4·H/p para poder 80%. VERIFICADO: n=1070 medido vs 1140 predicho   [C01·A1,A2,A3 ⊕] w=.96
 N04 ≡ El MC reporta el error de integración (1/√N, elegido) y oculta el de inferencia (√(H/T), heredado). Subreporte ≈√(N·H/T), CRECIENTE en N   [C01·A2,A3 ⊕] w=.93
@@ -59,13 +59,13 @@ N26 ⊥ N06            no estacionariedad: buena para el nivel, catastrófica pa
 N24 → N07            el sesgo de M̂2 se heredaría del índice de cola — a verificar
 
 N27 ≡ [REFORMULADO C04: NO es ley general. Con el DGP bien especificado el modelo complejo GANA a los tres horizontes. La complejidad solo penaliza si es INCORRECTA o SUPERFLUA] **COMPLEJIDAD ÓPTIMA DECRECIENTE EN H**: modelo óptimo por RMSE = GJR-t+EVT(8p) a 1 mes → GARCH-N(4p) a 1 año → GBM(2p) a 10 años. La sofisticación que gana a corto pierde a largo. MATIZ: a 10a todos fallan (RMSE mínimo 47%); GBM gana por ser el menos catastrófico, no por ser bueno   [C02·orq, verificado] w=.40
-N28 ≡ **LA COLA DEL ERROR**: la distribución de error de un modelo de cola hereda las colas gordas del fenómeno que modela. A 10a el modelo EVT tiene RMSE 377% con mediana 43,6% (razón 8,7); el GBM 47,0%/35,1% (razón 1,34). El coste de la sofisticación no se paga en error típico sino en frecuencia de error catastrófico — y nadie lo mide porque nadie reporta la distribución del error de su modelo, solo el número   [C02·orq, verificado] w=.84
+N28 ≡ [EXPLICADO C05: el EVT gasta su presupuesto de estimación en la FORMA DE LA COLA, que aporta el **0,14%** de la varianza del ES a 10 años. El 377% de RMSE es sofisticación asignada al 0,14% del problema. De anomalía pasa a corolario de N71] **LA COLA DEL ERROR**: la distribución de error de un modelo de cola hereda las colas gordas del fenómeno que modela. A 10a el modelo EVT tiene RMSE 377% con mediana 43,6% (razón 8,7); el GBM 47,0%/35,1% (razón 1,34). El coste de la sofisticación no se paga en error típico sino en frecuencia de error catastrófico — y nadie lo mide porque nadie reporta la distribución del error de su modelo, solo el número   [C02·orq, verificado] w=.88
 
 N27 → N28            la monotonía y la curtosis del error son el mismo fenómeno visto dos veces
 N28 → N07            EVT no ajustable a H largo, apareciendo de forma dinámica en vez de estática
 N27 ⊣ N05            la escalera no colapsa a GBM, pero a H largo conviene usar GBM igualmente
 
-N29 ≡ **EL RIVAL**: Pástor–Stambaugh 2012 (JF 67(2):431–478) es el mismo programa ya ejecutado — riesgo a largo plazo sin tratar los parámetros como conocidos, descompuesto en componentes epistémicos, con conclusión que invierte la sabiduría convencional. Ellos bayesianos sobre varianza predictiva; nosotros frecuentistas sobre medidas de cola. Tratar como rival, no como cita   [auditoría A01] w=.97
+N29 ≡ **EL RIVAL**: Pástor–Stambaugh 2012 (JF 67(2):431–478) es el mismo programa ya ejecutado — riesgo a largo plazo sin tratar los parámetros como conocidos, descompuesto en componentes epistémicos, con conclusión que invierte la sabiduría convencional. Ellos bayesianos sobre varianza predictiva; nosotros frecuentistas sobre medidas de cola. Tratar como rival, no como cita   [auditoría A01] w=.98
 N30 ≡ **ENCARGO LE CAM**: para que N24 sea teorema y no observación hace falta una cota inferior minimax — dos puntos M2 = 1 ∓ cT^(−a) y demostrar que ninguna sucesión de tests los separa con probabilidad → 1. Una meseta de RMSE es una observación; una cota de Le Cam es un teorema   [auditoría A01] w=.95
 N31 ≡ **ENCARGO ÍNDICE DE COLA**: para que N28 sea teorema hay que derivar el índice de cola de la distribución del error de ES ligándolo al error de estimación de la persistencia. El error de ES es ~exponencial en (error de persistencia × horizonte) ⇒ lognormalidad/cola de potencia de forma mecánica   [auditoría A01] w=.88
 N32 ≡ **ENCARGO DESIGUALDAD**: N25 solo sobrevive como (información de Fisher sobre θᵢ)×(peso decisional de θᵢ) ≤ C, uniforme sobre una clase de modelos. Sin esa desigualdad es folclore con decimales   [auditoría A01] w=.85
@@ -110,7 +110,7 @@ N44 → N06           el umbral de Hermite de rango 4 ES la condición de cuarto
 N12 ⊥ N05           dos d incompatibles: 0,40 vs 0,26 → N47
 N46 ⊣ N22           la escapatoria existía, pero en otro nodo
 
-N48 ≡ **EL COSTE DE ESTIMAR CRECE CON EL HORIZONTE** (medido sin contaminación, DGP sin saltos donde el modelo 3 ES la familia del generador): oráculo 3,1%/5,2%/6,6% a 1 mes/1 año/10 años — la especificación no es el problema. Coste de estimar = **+4,0 → +11,2 → +50,0 puntos**. Se multiplica por doce entre un mes y diez años   [orq, verificado] w=.92
+N48 ≡ [REETIQUETADO C05: los +50 puntos son **99,86% DERIVA**. No es «el coste de estimar», es «el coste de estimar μ». Predicho analíticamente 53,4% vs 53,0% medido] **EL COSTE DE ESTIMAR μ CRECE CON EL HORIZONTE** (medido sin contaminación, DGP sin saltos donde el modelo 3 ES la familia del generador): oráculo 3,1%/5,2%/6,6% a 1 mes/1 año/10 años — la especificación no es el problema. Coste de estimar = **+4,0 → +11,2 → +50,0 puntos**. Se multiplica por doce entre un mes y diez años   [orq, verificado] w=.94
 N49 ≡ **AUTOCORRECCIÓN**: afirmé, respondiendo al auditor, que el DGP pertenecía a la familia del modelo 3 y por tanto su derrota sería puramente error de estimación. Era FALSO: el DGP tiene saltos y el modelo 3 no. Y a 10 años el error de estimación REDUJO el error del modelo 3 (65,5%→56,4%), lo contrario de mi mecanismo. El test que propuse para defender mi afirmación la refutó   [orq] w=1.0
 
 N49 ⊣ N27           el mecanismo atribuido no está demostrado
@@ -136,13 +136,13 @@ N55 → N28           el mecanismo que el encargo N31 pedía, encontrado tras re
 N55 → N06           el modelo EVT cae por construcción del lado M2>1
 N55 ⊥ N50           T1 inactivo aquí (ρ≈5,4), T2 activo: son canales distintos
 
-N57 ≡ **EL CRUCE**: a 10 años un modelo MAL especificado con parámetros CONOCIDOS (ORÁCULO-GBM, RMSE 24,0%) bate a uno BIEN especificado con parámetros ESTIMADOS (MODELO-3, RMSE 56,6%). A 1 mes ocurre lo contrario y por un factor de ocho (3,1% vs 26,3%). **Entre un año y diez años, saber los parámetros de un modelo malo pasa a valer más que tener el modelo bueno y estimarlo**   [orq, medido] w=.88
+N57 ≡ **EL CRUCE**: a 10 años un modelo MAL especificado con parámetros CONOCIDOS (ORÁCULO-GBM, RMSE 24,0%) bate a uno BIEN especificado con parámetros ESTIMADOS (MODELO-3, RMSE 56,6%). A 1 mes ocurre lo contrario y por un factor de ocho (3,1% vs 26,3%). **Entre un año y diez años, saber los parámetros de un modelo malo pasa a valer más que tener el modelo bueno y estimarlo**   [orq, medido] w=.90
 
 N57 → N48           el cruce es la consecuencia operativa de la amplificación
 N57 ⊣ N27           y es lo que queda de N27 una vez quitado lo que no era cierto
 
 N58 ≡ **REGRESO DIVERGENTE DE LA ESTACIONARIEDAD**: certificar T* con precisión relativa ε exige observar k=1/ε² regímenes, o sea T ≥ T*/ε² (±20% ⇒ 25·T*; con T*=50a son 1.250 años), y ese presupuesto mayor exige otro 25× mayor. **La sucesión T_{k+1}=T_k/ε² no tiene punto fijo finito.** Estrictamente más fuerte que N33: allí la cota se vuelve verificable una vez superada; aquí **NUNCA es verificable**   [C04·E2] w=.85
-N59 ≡ **FRONTERA DE FALSABILIDAD — H/p < T*/11,4**. Acopla N03 con el presupuesto de estacionariedad. Con T*=5a solo es falsable H≤1,1 días (p=1%) o 5,5 días (p=5%). Lo que exigiría cada norma vigente: **FRTB (ES 10d 97,5%) T*≥18,1a · Basilea II (VaR 10d 99%) 45,2a · Solvencia II (1a 99,5%) 2.280a · ECL vitalicia 10a 11.400a**. Solo el VaR diario sobrevive   [C04·E2] w=.90
+N59 ≡ **FRONTERA DE FALSABILIDAD — H/p < T*/11,4**. Acopla N03 con el presupuesto de estacionariedad. Con T*=5a solo es falsable H≤1,1 días (p=1%) o 5,5 días (p=5%). Lo que exigiría cada norma vigente: **FRTB (ES 10d 97,5%) T*≥18,1a · Basilea II (VaR 10d 99%) 45,2a · Solvencia II (1a 99,5%) 2.280a · ECL vitalicia 10a 11.400a**. Solo el VaR diario sobrevive   [C04·E2] w=.92
 N60 ≡ **T̂* NO ES IDENTIFICABLE**: segmentación binaria con valores críticos iid sobre una serie ESTACIONARIA d=0,40 **sin ninguna ruptura** da 3,97 rupturas en 50 años (T̂*=10,1a), indistinguible de un proceso con 4 rupturas reales (4,00 → 10,0a). Tasa de rechazo espurio 0,974. **El T* de la literatura empírica es la sombra del supuesto de memoria corta**   [C04·E2] w=.88
 N61 ≡ **CUOTA DE VENTANA**: elegir T* (ventana 1–50a, misma trayectoria, mismo día) mueve el ES₉₉ un factor 1,34 (mediana), 1,73 (p90), **2,16 (p99)**. ~34% del capital regulatorio es un grado de libertad que ningún dato fija. Y el sesgo va al lado tranquilizador: solo el 21% de los saltos reales son visibles ⇒ **T̂*_medido = 4,8·T*_real**   [C04·E2] w=.84
 N62 ≡ **PODER CON n_eff, NO CON n**: calibrando bajo la nula honesta (memoria larga sin ruptura), 50 años no detectan al 80% ningún cambio de volatilidad menor que **×1,55**. Δ₈₀ ∝ n^(−(1−2d)/2): 25a→×1,62, 100a→×1,49, 400a→×1,45. Llegar a ×1,10 exige **1,7·10⁶ años**. La literatura documenta el TAMAÑO distorsionado de estos tests; el PODER bajo la nula honesta no   [C04·E2] w=.86
@@ -174,3 +174,16 @@ N70 ≡ **LA TABLA QUE REORIENTA**: efectos medidos sobre el ES en este mismo tr
 
 N69 ⊣ N06 ⊣ N24a ⊣ N24b ⊣ N44 ⊣ N66 ⊣ N67 ⊣ N68     toda la línea M2 degradada en bloque
 N70 → N48 → N57 → N61 → N28                          hacia donde van los ciclos 5-10
+
+N71 ≡ **EL INVARIANTE H·f = k²/2 = 3,55 OBSERVACIONES**: var(ÊS_H) = H²σ²/T + H·k²σ²/(2fT) con k=φ(z_α)/(1−α). Los dos términos —deriva y cola— se igualan en **3,55 observaciones** (2,73 a α=97,5%), **cancelándose T, σ y la unidad de muestreo**. Cuota de la deriva: 22,0% a 1 día, 85,5% a 1 mes, 98,6% a 1 año, **99,86% a 10 años**. Consecuencia perversa: **muestrear más rápido ADELANTA el cruce** (5-min → 1,6 horas) — más datos hacen el problema más puramente de media, nunca menos. Predice N48 analíticamente: 53,4% vs 53,0% medido   [C05·F3] w=.90
+N72 ≡ **NUNCA VÁLIDA Y ÚTIL A LA VEZ**: la región falsable de N59 (H≤1,1 días) está **contenida** en la región dominada por la cola de N71 (H·f≤3,55 obs). Donde el ES es falsable lo domina el sesgo de especificación (|sesgo|/SD = 21,6 a 1 semana, 18,3 a 1 mes); donde está limpio de sesgo (1,59 a 1 año, 0,12 a 10 años) ya es puramente N01. **Falsabilidad y especificidad-de-cola se apagan juntas**   [C05·F3] w=.86
+N73 ≡ **√t ES EXACTAMENTE μ=0, Y μ NO ES ESTIMABLE**: √(H/Δ)·ES₁d = ES_H(μ=0) con ratio medido **0,9941**. Declarar μ∈[0,8%] mueve el ES₉₉ a 10 años **1,903×**; √t frente a μ=5%, **1,413×**. Con T=10a, IC95(μ̂)=[−7,4%,+17,4%] ⇒ **ES₉₉ a 10 años ∈[−0,05, 2,43]: ni el signo está determinado**. Fijar μ a ±1%/año exige 400 años a cualquier frecuencia. *El número regulatorio es una apuesta declarada sobre la prima de riesgo disfrazada de medida de cola*   [C05·F3] w=.90
+N74 ≡ **≈4,1× DE CAPITAL LIBRE DE DATO** (conjetura a verificar): si la cuota de ventana (N61, 2,16× p99) y la cuota de μ declarado (N73, 1,90×) son **ortogonales**, su producto es un factor de cuatro en el capital regulatorio que ningún dato fija. Comparar con la frontera M2: 1,011×   [C05·F3 ⊕ orq] w=.70
+N75 ≡ **ENTREGABLE SUSTITUTIVO**: en vez del ES a horizonte regulatorio, la terna — (i) **ES a 1 día estimado y backtesteado** (relSD 1,6%, único régimen falsable por N59); (ii) **μ o el multiplicador DECLARADOS como convención publicada, no estimados**, con la prueba de que no admiten estimador; (iii) **el choque de ruptura s\*=K/exposición y el recuento histórico de excedencias**. s\* es un hecho contable presente y el recuento un hecho pasado: **ambos verificables por un tercero**   [C05·F3] w=.72
+
+N71 → N48           el mecanismo analítico de los +50 puntos: 99,86% deriva
+N71 → N28           el 377% de RMSE del EVT es sofisticación asignada al 0,14% del problema
+N71 ⊐ N59 ⇒ N72     la región falsable está contenida en la dominada por la cola
+N73 ⊣ (todo el ES)  el número a horizonte regulatorio es una declaración sobre μ
+N74 ⊕ N61 ⊕ N73     el producto, si son ortogonales
+N75 → N59           mueve la fracción falsable del componente estimado de ~0% a 100%
