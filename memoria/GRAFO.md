@@ -58,7 +58,7 @@ N24 ⊕ N22 ⇒ DOS fronteras de fase no identificables: M2=1 y d≈0,37
 N26 ⊥ N06            no estacionariedad: buena para el nivel, catastrófica para la cola
 N24 → N07            el sesgo de M̂2 se heredaría del índice de cola — a verificar
 
-N27 ≡ [CORREGIDO: fenómeno OBSERVADO, mecanismo NO establecido — el test del oráculo refutó la explicación del orquestador] **COMPLEJIDAD ÓPTIMA DECRECIENTE EN H**: modelo óptimo por RMSE = GJR-t+EVT(8p) a 1 mes → GARCH-N(4p) a 1 año → GBM(2p) a 10 años. La sofisticación que gana a corto pierde a largo. MATIZ: a 10a todos fallan (RMSE mínimo 47%); GBM gana por ser el menos catastrófico, no por ser bueno   [C02·orq, verificado] w=.60
+N27 ≡ [REFORMULADO C04: NO es ley general. Con el DGP bien especificado el modelo complejo GANA a los tres horizontes. La complejidad solo penaliza si es INCORRECTA o SUPERFLUA] **COMPLEJIDAD ÓPTIMA DECRECIENTE EN H**: modelo óptimo por RMSE = GJR-t+EVT(8p) a 1 mes → GARCH-N(4p) a 1 año → GBM(2p) a 10 años. La sofisticación que gana a corto pierde a largo. MATIZ: a 10a todos fallan (RMSE mínimo 47%); GBM gana por ser el menos catastrófico, no por ser bueno   [C02·orq, verificado] w=.40
 N28 ≡ **LA COLA DEL ERROR**: la distribución de error de un modelo de cola hereda las colas gordas del fenómeno que modela. A 10a el modelo EVT tiene RMSE 377% con mediana 43,6% (razón 8,7); el GBM 47,0%/35,1% (razón 1,34). El coste de la sofisticación no se paga en error típico sino en frecuencia de error catastrófico — y nadie lo mide porque nadie reporta la distribución del error de su modelo, solo el número   [C02·orq, verificado] w=.80
 
 N27 → N28            la monotonía y la curtosis del error son el mismo fenómeno visto dos veces
@@ -110,7 +110,7 @@ N44 → N06           el umbral de Hermite de rango 4 ES la condición de cuarto
 N12 ⊥ N05           dos d incompatibles: 0,40 vs 0,26 → N47
 N46 ⊣ N22           la escapatoria existía, pero en otro nodo
 
-N48 ≡ **ERROR DE ESTIMACIÓN PURO, MEDIDO**: ORÁCULO-GBM a 10 años da sesgo −28,8% y RMSE 28,8% (varianza ≈0) frente a 47,3% del GBM estimado. Esos **18,5 puntos son error de estimación puro** sobre el modelo más simple posible y a horizonte largo. Es la única parte del mecanismo de N27 que el test del oráculo sostiene   [orq, verificado] w=.85
+N48 ≡ **EL COSTE DE ESTIMAR CRECE CON EL HORIZONTE** (medido sin contaminación, DGP sin saltos donde el modelo 3 ES la familia del generador): oráculo 3,1%/5,2%/6,6% a 1 mes/1 año/10 años — la especificación no es el problema. Coste de estimar = **+4,0 → +11,2 → +50,0 puntos**. Se multiplica por doce entre un mes y diez años   [orq, verificado] w=.92
 N49 ≡ **AUTOCORRECCIÓN**: afirmé, respondiendo al auditor, que el DGP pertenecía a la familia del modelo 3 y por tanto su derrota sería puramente error de estimación. Era FALSO: el DGP tiene saltos y el modelo 3 no. Y a 10 años el error de estimación REDUJO el error del modelo 3 (65,5%→56,4%), lo contrario de mi mecanismo. El test que propuse para defender mi afirmación la refutó   [orq] w=1.0
 
 N49 ⊣ N27           el mecanismo atribuido no está demostrado
@@ -135,3 +135,8 @@ N56 ≡ **EL MECANISMO DE N28 ES MULTIPLICATIVO, NO ADITIVO**: sumar H variables
 N55 → N28           el mecanismo que el encargo N31 pedía, encontrado tras retractar T1
 N55 → N06           el modelo EVT cae por construcción del lado M2>1
 N55 ⊥ N50           T1 inactivo aquí (ρ≈5,4), T2 activo: son canales distintos
+
+N57 ≡ **EL CRUCE**: a 10 años un modelo MAL especificado con parámetros CONOCIDOS (ORÁCULO-GBM, RMSE 24,0%) bate a uno BIEN especificado con parámetros ESTIMADOS (MODELO-3, RMSE 56,6%). A 1 mes ocurre lo contrario y por un factor de ocho (3,1% vs 26,3%). **Entre un año y diez años, saber los parámetros de un modelo malo pasa a valer más que tener el modelo bueno y estimarlo**   [orq, medido] w=.88
+
+N57 → N48           el cruce es la consecuencia operativa de la amplificación
+N57 ⊣ N27           y es lo que queda de N27 una vez quitado lo que no era cierto
