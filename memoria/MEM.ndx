@@ -2,3 +2,4 @@
 # ejes: A=aleat>epist E=estacionar F=falsab P=parametr H=horiz O=operat
 C01|k0.91|c[.83,.18,.12,.26,.95,.72]|D=P0.11|GRI|N:01-14|>N13,N14|q:existe un funcional de riesgo a H anios que sea a la vez decision-relevante, invariante al drift y refutable sobre UNA trayectoria?
 C02|k0.62|c[.68,.45,.73,.44,.50,.74]|D=P0.34|GRI|N:16-26|>N16,N23,N25|q:la escapatoria ergodica n_eff=(T/tau)^(1-2d) es real? donde esta el umbral d~0.37 y es d estimable para saber de que lado estamos?
+C03|k0.69|c[.46,.62,.57,.58,.77,.80]|D=E0.26|GRI|N:33-47|>N02gen,N03cota,N42|q:se puede decidir con T anios de datos si el proceso TIENE ley invariante? demostrarlo como cota de Le Cam, no como meseta de RMSE

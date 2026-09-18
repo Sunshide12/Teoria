@@ -4,18 +4,18 @@ Formato en `FORMATO.md`. IDs estables: cítalos por ID, no reexpliques el concep
 
 ## Nodos
 
-N01 ≡ El drift es inestimable in-fill: I(μ)=T/σ² no depende de la frecuencia. Girsanov — cambiar μ da medidas equivalentes, cambiar σ las da singulares. SE(μ̂)=σ/√T es un suelo, no una elección   [C01·A2] w=.95
-N02 ≡ Invariante adimensional R(H)=√(H/T_eff)=epistémico/aleatorio. Sin σ ni μ dentro. H*=T_eff es donde R=1 y el error de estimar supera a la aleatoriedad   [C01·A1,A2 ⊕] w=.89
-N03 ≡ n_eff=T/H (no T·252) gobierna TODA falsabilidad. T_req≈11,4·H/p para poder 80%. VERIFICADO: n=1070 medido vs 1140 predicho   [C01·A1,A2,A3 ⊕] w=.92
+N01 ≡ El drift es inestimable in-fill: I(μ)=T/σ² no depende de la frecuencia. Girsanov — cambiar μ da medidas equivalentes, cambiar σ las da singulares. SE(μ̂)=σ/√T es un suelo, no una elección   [C01·A2] w=.96
+N02 ≡ Invariante adimensional R(H)=√(H/T_eff)=epistémico/aleatorio. Sin σ ni μ dentro. H*=T_eff es donde R=1 y el error de estimar supera a la aleatoriedad   [C01·A1,A2 ⊕] w=.93
+N03 ≡ n_eff=T/H (no T·252) gobierna TODA falsabilidad. T_req≈11,4·H/p para poder 80%. VERIFICADO: n=1070 medido vs 1140 predicho   [C01·A1,A2,A3 ⊕] w=.96
 N04 ≡ El MC reporta el error de integración (1/√N, elegido) y oculta el de inferencia (√(H/T), heredado). Subreporte ≈√(N·H/T), CRECIENTE en N   [C01·A2,A3 ⊕] w=.93
-N05 ≡ La escalera NO colapsa a GBM en ningún horizonte humano. CV de varianza integrada decae H^−0,24 y no H^−0,5; ES99(GJR)/ES99(GBM)=1,77 a 1a y 1,62 a 20a   [C01·A1] w=.85
+N05 ≡ La escalera NO colapsa a GBM en ningún horizonte humano. CV de varianza integrada decae H^−0,24 y no H^−0,5; ES99(GJR)/ES99(GBM)=1,77 a 1a y 1,62 a 20a   [C01·A1] w=.82
 N06 ≡ Frontera de fase M2=E[(α+γ1{ε<0}+β)²]=1 empíricamente NO identificable: las acciones caen en M2≈1,0085±0,02 y la curtosis muestral (3,6→5,5) no distingue una poblacional de 13,5 de una infinita   [C01·A1 +verif] w=.90
 N07 ≡ EVT no es ajustable a horizonte largo: N_u=p_u·T/H. A H=10a con bloques no solapados N_u≈0,5. Toda aplicación de EVT a largo plazo usa solapamiento o una regla de agregación asumida   [C01·A2] w=.80
 N08 ≡ Colapso de canal: a H≫τ (mezcla) el futuro es cond. indep. del pasado dado θ, luego I(datos;futuro) ≤ I(datos;θ) ≈ (d/2)log₂T ≈ 50 bits. Toda la información pasa por θ   [C01·A3] w=.80
 N09 ≡ [DEBILITADO C02] Dambis–Dubins–Schwarz: la ley de TODO funcional de trayectoria depende solo de la ley de ⟨M⟩_H más los saltos. La escalera entera es una reparametrización de ⟨M⟩. Solo el drift queda fuera   [C01·A3] w=.55
-N10 ≡ Reflexividad: el estimando no está quieto, P=Φ(P̂). Migración de cola — tras estandarizarse una métrica, la crisis siguiente nace fuera de su perímetro (Basilea I→1998, VaR→2008, FRTB→2023)   [C01·A3] w=.68
+N10 ≡ Reflexividad: el estimando no está quieto, P=Φ(P̂). Migración de cola — tras estandarizarse una métrica, la crisis siguiente nace fuera de su perímetro (Basilea I→1998, VaR→2008, FRTB→2023)   [C01·A3] w=.78
 N11 ≡ N*≈T_eff/(H(1−q)): existe un número de trayectorias más allá del cual simular es teatro. T=20a,H=10a,q=.99 ⇒ N*≈200. Correr 40.000 es precisión espuria de 2 órdenes   [C01·A1] w=.75
-N12 ≡ T_eff=T^(1−2d) con d≈0,4 (memoria larga de |r|) ⇒ con T=100a, T_eff≈2,5a. El horizonte epistémico se mide en AÑOS, no en décadas   [C01·A1] w=.70
+N12 ≡ [C03: d̂≈0,4 es igualmente compatible con d=0 y n_eff=100-330; T_eff=T^(1-2d) solo vale si la clase ARFIMA es cierta] **T_eff = H^(2d)·T^(1−2d)** (media geométrica ponderada entre H y T). Con T=100a, H=10a, d=0,4: **T_eff=15,8 años**, no 2,5. Límites: d=0⇒T_eff=T; d→½⇒T_eff→H. La versión del ciclo 1 subestimaba ×6,3. El horizonte epistémico se mide en AÑOS, no en décadas   [C01·A1] w=.80
 N13 ≡ [DEGRADADO C02: solo vale en invariancia débil y H≪1/κ] SÍNTESIS: el drift es el único canal irreducible Y es exactamente la dirección en la que las medidas son equivalentes. Un funcional invariante al drift sería estimable in-fill — ahí está la salida, si existe   [C01·⊕] w=.62
 N14 ≡ SÍNTESIS: la escalera añade ESTRUCTURA, no INFORMACIÓN. Cambia la respuesta (N05) sin cambiar lo que puede saberse (N08). Resuelve la tensión: subir peldaños mueve el número y no mueve el conocimiento   [C01·⊕] w=.75
 
@@ -34,17 +34,17 @@ N10 ⊣ N03            si el estimando se mueve, ni siquiera n_eff está bien de
 
 N15 ≡ El sesgo del estimador en el filo TIENE DIRECCIÓN: con 20a de datos el MLE sitúa M̂2<1 el 80% de las veces en que la verdad es M2>1. No es que no se pueda estimar — es que se estima mal hacia el lado tranquilizador. Precisión de clasificación 52,9% vs 50% de azar   [C01·A1 + verificación propia] w=.90
 
-N16 ≡ [CASI: Phillips-Yu 2005, Tang-Chen 2009 ya tienen el piso. Solo la RECURSIÓN es nueva, y hay que demostrarla invariante de nivel] **TORRE DEL DRIFT**: el drift no es un canal sino una posición estructural que se reproduce en cada nivel de la jerarquía de volatilidad. θ (media de largo plazo de v) es el drift de v, con SE(θ̂)/θ=η/(κ√(2θT)) ∝ 1/√T. Subir un nivel traslada el problema, no lo resuelve   [C02·B1,B2 ⊕ +orq] w=.60
-N17 ≡ Contribución del estado presente observable a horizonte H con reversión κ: ρ(H)=(1−e^{−κH})/(κH) → 1/(κH). Con κ=5, H=10a: **2%**. Alta frecuencia da el presente con precisión ilimitada y el futuro con precisión nula   [C02·B2 +orq] w=.88
+N16 ≡ [CASI: Phillips-Yu 2005, Tang-Chen 2009 ya tienen el piso. Solo la RECURSIÓN es nueva, y hay que demostrarla invariante de nivel] **TORRE DEL DRIFT**: el drift no es un canal sino una posición estructural que se reproduce en cada nivel de la jerarquía de volatilidad. θ (media de largo plazo de v) es el drift de v, con SE(θ̂)/θ=η/(κ√(2θT)) ∝ 1/√T. Subir un nivel traslada el problema, no lo resuelve   [C02·B1,B2 ⊕ +orq] w=.88
+N17 ≡ Contribución del estado presente observable a horizonte H con reversión κ: ρ(H)=(1−e^{−κH})/(κH) → 1/(κH). Con κ=5, H=10a: **2%**. Alta frecuencia da el presente con precisión ilimitada y el futuro con precisión nula   [C02·B2 +orq] w=.92
 N18 ≡ **CUOTA DECISIONAL INVARIANTE**: la parte del problema de decisión accesible a un funcional drift-invariante es de unidades porcentuales. Vol constante Φ=2S²/m (0,13% diario); Heston Φ_∞=S²η²/(2κ²θ+S²η²)≈2%; techo universal **1/4** (solo si ⟨σ²⟩⟨σ⁻²⟩=2). Los tres agentes   [C02·B1,B2,B3 ⊕] w=.94
 N19 ≡ [PUBLICADO: Rockafellar-Uryasev-Zabarankin 2006 — NO es hallazgo nuestro] **MONETARIEDAD ⊥ INVARIANCIA**: toda medida de riesgo aditiva en efectivo es Girsanov-equivariante (se desplaza en ∫θσds). La frontera Artzner(coherente)/Rockafellar(desviación) ES la frontera de Girsanov. Margen y vol-target son drift-libres por necesidad matemática; ES y capital económico no pueden serlo jamás   [C02·B3] w=.25
 N20 ≡ **COLAPSO DE VILLE POR SATURACIÓN**: si el nulo está saturado por equivalencia, todo e-proceso cumple ess-sup E_τ≤1 → error tipo I exactamente 0 y escala de evidencia vacía. Deja de ser test y pasa a certificado cuasi-seguro. Corolario: todo funcional invariante a cambio equivalente con Fatou colapsa al ess-sup   [C02·B3, corrobora B2(iii), REFUTA B1-C4] w=.87
 N21 ≡ **ANIQUILACIÓN CLARK–OCONE**: si Ψ(P)=E_P[φ] es invariante bajo TODA Q~P, entonces E[D_tφ|F_t]=0 y φ es c.s. constante. (b-fuerte) no admite funcional no trivial, y (b-débil)="depende solo de la ley de ⟨M⟩_H" NO es equivalente: presupone la escisión, o sea ya es paramétrica   [C02·B2] w=.83
-N22 ≡ **ESCAPATORIA ERGÓDICA**: si H≫τ_vol, Ψ deja de ser funcional de la ley TERMINAL y pasa a serlo de la ley INVARIANTE, con n_eff=(T/τ)^(1−2d) en vez de T/H. Con d=0,26, T=50a, τ=1mes: n_eff pasa de 5 a 21,6. **UMBRAL: la puerta se cierra si d > ≈0,37**, y el d≈0,4 de N12 la deja cerrada — pero dentro del error de estimación   [C02·B3] w=.70
-N23 ≡ **PARTICIÓN DEL EJE P**: la grieta P no era desacuerdo sino dos preguntas confundidas. Libre de modelo acierta en la ANCHURA (desviación, margen); paramétrico es imprescindible para la UBICACIÓN (capital, ES)   [C02·⊕] w=.85
+N22 ≡ [REFUTADO C03·D1] **CANCELACIÓN ERGÓDICA**: promediar dentro del horizonte es una transformación GAUGE. Mejora θ̂ por H/τ y concentra IV_H por el mismo H/τ. Control exacto OU con H/τ=504: n_eff=4,992, no 2.520. El «umbral d≈0,37» era artefacto de unidades — τ se cancela. Lo que era: si H≫τ_vol, Ψ deja de ser funcional de la ley TERMINAL y pasa a serlo de la ley INVARIANTE, con n_eff=(T/τ)^(1−2d) en vez de T/H. Con d=0,26, T=50a, τ=1mes: n_eff pasa de 5 a 21,6. **UMBRAL: la puerta se cierra si d > ≈0,37**, y el d≈0,4 de N12 la deja cerrada — pero dentro del error de estimación   [C02·B3] w=.15
+N23 ≡ **PARTICIÓN DEL EJE P**: la grieta P no era desacuerdo sino dos preguntas confundidas. Libre de modelo acierta en la ANCHURA (desviación, margen); paramétrico es imprescindible para la UBICACIÓN (capital, ES)   [C02·⊕] w=.90
 N24 ≡ [FLANCO: Hall-Yao 2003 — el sesgo plano podría ser su no-regularidad. Reconciliar ANTES de reclamar] La frontera M2=1 **no es identificable a ningún T**: el sesgo del MLE no encoge (−0,018 a 10a, −0,015 a 80a) mientras el SE sí (0,0124→0,0038). RMSE se estanca en ~0,015 > |M2−1|=0,011. Sospecha: el sesgo se hereda de ν̂, el índice de cola de la innovación — o sea N07 reapareciendo   [verificación propia] w=.70
 N25 ≡ [CASI: Merton 1980 + Chopra-Ziemba 1993. Solo vale si se convierte en DESIGUALDAD general] **Lo que se refuta rápido es lo que no decide.** Refutar un error del 20% en varianza: ~4 días. En drift: 37–800 años. Ratio 10⁴–10⁵. Y la cuota decisional (N18) va exactamente al revés   [C02·B1,B2,B3 ⊕] w=.55
-N26 ≡ **INVERSIÓN κ=0**: si la volatilidad es no estacionaria (κ=0), E[v_H|v₀]=v₀ y no hay θ que estimar — la cuota observable es 1. Cuanto más no estacionaria la vol, MEJOR se pronostica su nivel medio y PEOR se comporta su cola. Las dos patologías apuntan en direcciones opuestas   [C02·orq] w=.60
+N26 ≡ **INVERSIÓN κ=0**: si la volatilidad es no estacionaria (κ=0), E[v_H|v₀]=v₀ y no hay θ que estimar — la cuota observable es 1. Cuanto más no estacionaria la vol, MEJOR se pronostica su nivel medio y PEOR se comporta su cola. Las dos patologías apuntan en direcciones opuestas   [C02·orq] w=.50
 
 ## Aristas (ciclo 2)
 
@@ -72,3 +72,40 @@ N32 ≡ **ENCARGO DESIGUALDAD**: N25 solo sobrevive como (información de Fisher
 
 N29 ⊣ (todo el programa)   hay que superarlo, no citarlo
 N30 → N24 · N31 → N28 · N32 → N25
+
+N33 ≡ **MURO AUTOSELLADO**: SE(d̂) en frecuencias limpias ≈ (1−d)/√K con K = T/τ_reg = el propio n_eff. Resolver d a ±δ exige n_eff ≥ ((1−d)/δ)². Separar n_eff=5 de n_eff=20 exige n_eff≈400. **Una cota sobre la evidencia solo es verificable cuando ya ha sido superada**   [C03·D2] w=.85
+N34 ≡ **PRECISIÓN SIN INFORMACIÓN**: subir el ancho de banda de m=n^0,5 a n^0,7 divide SE(d̂) por 2,7 (0,052→0,019) y lleva la exactitud de clasificación ENTRE CLASES a 0,48–0,51 (azar). Mismo patrón que N01 (in-fill) y N24 (22%): la precisión reportada y la información decisional divergen   [C03·D2] w=.86
+N35 ≡ **DOS TIPOS DE NO IDENTIFICABILIDAD**. Tipo I (M2=1): filo de cuchillo dentro de un modelo correcto, sesgo que no encoge. Tipo II (d): identificable DENTRO de la clase, no ENTRE clases; más precisión empeora la decisión. El tipo II es peor   [C03·D2] w=.82
+N36 ≡ **n_eff INDETERMINADO POR FACTOR 46**: cinco procesos con d̂∈[0,36;0,41] indistinguibles (AUC 0,52–0,65) tienen n_eff medido de 7,2 (ARFIMA d=0,40) a 331,4 (saltos de nivel). La magnitud que decide todo queda indeterminada 46× mientras el estimador que debería medirla parece idéntico   [C03·D2, medido] w=.88
+N37 ≡ **EL UMBRAL TAMPOCO ESTÁ DEFINIDO**: d*=½[1−ln(T/H)/ln(T/τ)] vale 0,415 (τ=1d) a 0,325 (τ=6meses). Con d̂=0,40±0,05 la banda del estimador y la banda del umbral se solapan por completo. No solo el parámetro es indeterminado: la frontera también   [C03·D2] w=.90
+N38 ≡ **TERCER PISO DE LA TORRE**: d es la deriva del log-periodograma en log-frecuencia, y hereda la misma ley 1/√(nº de ciclos independientes de baja frecuencia). μ→precio, θ→varianza, d→log-periodograma. La recursión es la misma ley en los tres pisos — que es exactamente la invariancia de nivel que la auditoría exigía para que N16 fuese resultado   [C03·D2 ⊕ N16] w=.88
+
+N33 ⊣ N22            la escapatoria no se puede certificar sin haberla ya superado
+N34 ≡ N01 ≡ N24      tres instancias del mismo patrón: precisión ⊥ información
+N37 ⊕ N36 ⇒ el parámetro Y la frontera son ambos indeterminados, y sus bandas se solapan
+N38 → N16            la invariancia de nivel que la auditoría pedía
+
+N39 ≡ **ORTOGONALIDAD UBICACIÓN/ANCHURA** (medido): la memoria larga degrada la UBICACIÓN agregada (n_eff 10→1,59) y deja la ANCHURA casi intacta (9,2→7,6 al pasar d de 0 a 0,4). Toda mejora de n_eff por agregación temporal es **inaccesible al estimando que fija ES y capital**. N22 y N03 operan en coordenadas ortogonales: nunca compitieron   [C03·D3, Davies–Harte 800 réplicas] w=.88
+N40 ≡ **LA ESCAPATORIA ES ASINTÓTICAMENTE VACÍA**: G(T)=n_eff_loc/(T/H) decrece monótonamente (5,14 a T=10a → 1,42 a 50a → 0,81 a 100a → 0,13 a 1000a) y cruza 1 en T_cross=τ(H/τ)^(1/2d)=**71 años**. Solo gana donde n_eff≲6 en ambas contabilidades — el régimen en que nada es estimable. **Acumular datos la cierra**   [C03·D3] w=.90
+N41 ≡ **CORRECCIÓN DIMENSIONAL DE N12**: T_eff=T^(1−2d) esconde un τ. Correctamente T_eff=τ·(T/τ)^(1−2d); con τ=1 día da **8,1 días**, no 2,5 años. Los «2,5 años» que arrastrábamos desde el ciclo 1 eran artefacto de fijar τ=1 año   [C03·D3] w=.85
+N42 ≡ **RECONCILIACIÓN D2/D3** (adjudicación del orquestador): parecían contradecirse y dicen lo mismo desde dos sitios. DENTRO de modelos estacionarios d SÍ es estimable (SE=0,019, clasifica 84–97%) — y la escapatoria está cerrada igualmente por N40. ENTRE estacionarios y no estacionarios d̂ no distingue (n_eff medido de 7,2 a 331,4) — pero ahí el problema no es el umbral sino que **no existe ley invariante que estimar**. En los dos casos N22 muere, por razones distintas. Y el patrón N24 queda acotado: es específico de fronteras de momento, no universal   [C03·⊕ orq] w=.88
+N43 ≡ **n_eff(L) = (T/L)^(1−2d), con L impuesto por el ESTIMANDO, no elegible.** Generalización correcta de N03. Para la media de bloques-H con d=0,4 da 1,59 < 10: la memoria larga DEGRADA el muro en vez de superarlo. N22 era el caso L=τ, lícito solo si el estimando es funcional de la marginal invariante — y el estimando que fija ES no lo es   [C03·D3] w=.86
+
+N39 ⊣ N22            la escapatoria mejoraba la coordenada equivocada
+N40 ⊣ N22            y se cierra sola al acumular datos
+N43 → N03            generalización: el muro depende del estimando, y el estimando no se elige
+N41 ⊣ N12            error dimensional arrastrado desde el ciclo 1
+N42 ⊣ N24            el patrón de no identificabilidad NO es universal: es de fronteras de momento
+N39 → N23            la partición ubicación/anchura, ahora medida
+
+N44 ≡ **JERARQUÍA DE RANGO DE HERMITE**: n_eff^(m) = (T/H)^min(1, m(1−2d)), con umbrales d*_m = ½(1−1/m) = 0, ¼, ⅓, 3/8, … → ½. La memoria larga es peaje puro por encima de d*_m y gratis por debajo. El 0,3742 que creíamos umbral de escape es ≈3/8 = **el umbral de rango 4, o sea la condición de cuarto momento — N06 otra vez**, y con el sentido INVERTIDO: por debajo el muro satura en T/H, por encima empeora   [C03·D1] w=.88
+N45 ≡ **«H≫τ» ES VACÍO, NO LEJANO**: agregar a cualquier escala deja el punto fijo ρ₁*=2^(2d)−1>0 para todo d>0 (verificado idéntico a 1d, 21d, 252d y 1260d; el AR(1) en cambio colapsa 0,953→0,045). **Ninguna escala vuelve iid la volatilidad.** Horizonte para CV(IV_H)=0,1: 8 años con d=0, 1.220 con d=0,26, **8·10⁸ con d=0,40**   [C03·D1] w=.90
+N46 ≡ **LA ESCAPATORIA REAL ESTABA EN N17, NO EN N22**: bajo memoria larga ρ(H) ∝ H^(2d−1), no 1/(κH). corr(v₀, IV_10a) = 0,066 (OU τ=1mes) vs 0,112 (d=0,26) vs **0,397 (d=0,40)**. La cuota del estado presente no es el 2% sino el 20–40% con d realista. Es un cambio de constante, no de tasa   [C03·D1] w=.85
+N47 ≡ **CONFLICTO DE d SIN RESOLVER**: el CV∝H^(−0,24) de N05 implica d=0,26 exactamente, pero ese d predice ES99(GJR)/ES99(GBM)=1,375 a 20a frente al 1,62 observado. Y el d=0,26 de un GJR simulado es memoria CORTA con τ enorme, no memoria larga genuina. Dos d incompatibles en el grafo: 0,40 (N12) y 0,26 (N05)   [C03·D1] w=.80
+
+N22 ⊣ N22           autodestrucción: premisa y ganancia exigen regímenes opuestos de d
+N22 ⊣ N05           N05 es la refutación empírica de la premisa de N22
+N03 ← N02           derivación independiente, mismo número: n_eff ≤ T/H con igualdad solo en d=0
+N44 → N06           el umbral de Hermite de rango 4 ES la condición de cuarto momento
+N12 ⊥ N05           dos d incompatibles: 0,40 vs 0,26 → N47
+N46 ⊣ N22           la escapatoria existía, pero en otro nodo
