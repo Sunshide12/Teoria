@@ -123,3 +123,8 @@ N52 ≡ **ρ = DISTANCIA A LA SINGULARIDAD** (conjetura unificadora): los tres r
 N50 → N28           la derivación que el encargo N31 pedía
 N51 ⊣ N50           el índice universal solo es observable cerca de la singularidad
 N52 ⊕ N24 ⊕ N44 ⊕ N50   los tres comparten estructura: parámetro a O(1) errores estándar de una singularidad
+
+N53 ≡ **EL DIAGNÓSTICO FALLA HACIA LA CALMA**: ρ̂=(1−φ̂)/SE(φ̂) mide 3,49 (T=10a) y 5,10 (T=20a) cuando el ρ verdadero es 1,49 y 2,17. φ̂ sale 0,976 frente a 0,990 verdadero: el estimador sitúa la persistencia MÁS LEJOS de la singularidad de lo que está, y **la brecha crece con T** porque el SE encoge mientras el sesgo persiste. Lectura a ρ̂=5,1: «P(error>2×)≈0,01%». Verdad a ρ=2,2: «≈3–4%». El instrumento que decide si la cola está activa está sesgado a decir que no, y más datos refuerzan la falsa tranquilidad   [orq, medido] w=.80
+
+N53 ⊣ N52           si ρ̂ no sirve, la conjetura unificadora no es verificable con ρ̂
+N53 ≡ N15 ≡ N33     misma familia: el instrumento falla hacia la conclusión tranquilizadora

@@ -128,3 +128,52 @@ datos disponible resuelve.
 3. Auditar novedad. La mecánica «normal en un denominador ⇒ cola de potencia» es
    elemental y seguro que está en algún sitio; lo que hay que buscar es si alguien la ha
    aplicado al error de un modelo de riesgo y ha observado que el índice es universal.
+
+---
+
+## Medición de ρ sobre ajustes reales — y el fallo del propio diagnóstico
+
+`ρ` se midió ajustando GJR-GARCH-t por máxima verosimilitud a series simuladas de un DGP
+con persistencia verdadera φ=0,99, con el error estándar de φ̂=α̂+γ̂/2+β̂ obtenido del
+hessiano numérico.
+
+| T | φ̂ medio | SE(φ̂) medio | **ρ̂ medido** | ρ p5–p95 | **ρ verdadero** |
+|---|---|---|---|---|---|
+| 10 años | 0,9767 | 0,0067 | **3,49** | [2,33 · 4,41] | 1,49 |
+| 20 años | 0,9762 | 0,0046 | **5,10** | [3,82 · 8,04] | 2,17 |
+
+Dos hechos, y el segundo invalida el uso ingenuo del diagnóstico.
+
+**Primero:** φ̂ sale 0,976 frente a 0,990. El estimador sitúa la persistencia **más lejos de
+la singularidad de lo que está**. Es el mismo sesgo direccional hacia el lado tranquilizador
+que se midió para M2 en N15 y N24, ahora en otro parámetro y con otro estimador.
+
+**Segundo, y es el problema:** `ρ̂ = 5,10` mientras el ρ verdadero es 2,17. Y la brecha
+**crece con T** —de 3,49 a 5,10 al pasar de 10 a 20 años— porque el error estándar del
+denominador encoge mientras el sesgo del numerador persiste.
+
+Las consecuencias operativas son opuestas:
+
+| | ρ̂ = 5,1 (lo que uno mediría) | ρ = 2,2 (la verdad) |
+|---|---|---|
+| Hill α | ≈ 14 | ≈ 2,3 |
+| P(error de ES > 2×) | ≈ 0,01% | **≈ 3–4%** |
+| lectura | «cola de potencia inobservable» | «uno de cada treinta estimados está mal por más del doble» |
+
+> **El diagnóstico que determina si la cola de potencia está activa está sesgado hacia decir
+> que no lo está, y cuantos más datos se acumulan, más seguro está de su error.**
+
+Esto pone a T1 en la misma familia que N33 (el muro autosellado) y N15 (el sesgo con
+dirección): no es solo que la cantidad relevante sea difícil de medir, es que **el
+instrumento falla sistemáticamente hacia la conclusión tranquilizadora**, y la acumulación
+de datos refuerza la falsa tranquilidad en vez de corregirla.
+
+Queda registrado como N53, y es lo que hay que atacar en el ciclo 5: si ρ̂ no sirve, ¿hay
+algún diagnóstico que sí? Y si no lo hay, la conjetura N52 pasa de interesante a
+inverificable — que es exactamente el tipo de resultado que esta investigación busca.
+
+**Caveat honesto:** el sesgo de φ̂ medido (−0,014) es grande y podría deberse en parte a las
+cotas del optimizador o al tamaño muestral, no solo a la no regularidad. La subestimación
+de la persistencia de GARCH en muestra finita es un hecho conocido; lo que aquí se añade es
+que **se propaga al diagnóstico de su propia fiabilidad con el signo equivocado**. Hay que
+comprobar con un estimador corregido por sesgo antes de darlo por establecido.
