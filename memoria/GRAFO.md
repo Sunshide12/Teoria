@@ -36,7 +36,7 @@ N15 ≡ El sesgo del estimador en el filo TIENE DIRECCIÓN: con 20a de datos el 
 
 N16 ≡ [CASI: Phillips-Yu 2005, Tang-Chen 2009 ya tienen el piso. Solo la RECURSIÓN es nueva, y hay que demostrarla invariante de nivel] **TORRE DEL DRIFT**: el drift no es un canal sino una posición estructural que se reproduce en cada nivel de la jerarquía de volatilidad. θ (media de largo plazo de v) es el drift de v, con SE(θ̂)/θ=η/(κ√(2θT)) ∝ 1/√T. Subir un nivel traslada el problema, no lo resuelve   [C02·B1,B2 ⊕ +orq] w=.88
 N17 ≡ Contribución del estado presente observable a horizonte H con reversión κ: ρ(H)=(1−e^{−κH})/(κH) → 1/(κH). Con κ=5, H=10a: **2%**. Alta frecuencia da el presente con precisión ilimitada y el futuro con precisión nula   [C02·B2 +orq] w=.92
-N18 ≡ **CUOTA DECISIONAL INVARIANTE**: la parte del problema de decisión accesible a un funcional drift-invariante es de unidades porcentuales. Vol constante Φ=2S²/m (0,13% diario); Heston Φ_∞=S²η²/(2κ²θ+S²η²)≈2%; techo universal **1/4** (solo si ⟨σ²⟩⟨σ⁻²⟩=2). Los tres agentes   [C02·B1,B2,B3 ⊕] w=.94
+N18 ≡ **CUOTA DECISIONAL INVARIANTE**: la parte del problema de decisión accesible a un funcional drift-invariante es de unidades porcentuales. Vol constante Φ=2S²/m (0,13% diario); Heston Φ_∞=S²η²/(2κ²θ+S²η²)≈2%; techo universal **1/4** (solo si ⟨σ²⟩⟨σ⁻²⟩=2). Los tres agentes   [C02·B1,B2,B3 ⊕] w=.95
 N19 ≡ [PUBLICADO: Rockafellar-Uryasev-Zabarankin 2006 — NO es hallazgo nuestro] **MONETARIEDAD ⊥ INVARIANCIA**: toda medida de riesgo aditiva en efectivo es Girsanov-equivariante (se desplaza en ∫θσds). La frontera Artzner(coherente)/Rockafellar(desviación) ES la frontera de Girsanov. Margen y vol-target son drift-libres por necesidad matemática; ES y capital económico no pueden serlo jamás   [C02·B3] w=.25
 N20 ≡ **COLAPSO DE VILLE POR SATURACIÓN**: si el nulo está saturado por equivalencia, todo e-proceso cumple ess-sup E_τ≤1 → error tipo I exactamente 0 y escala de evidencia vacía. Deja de ser test y pasa a certificado cuasi-seguro. Corolario: todo funcional invariante a cambio equivalente con Fatou colapsa al ess-sup   [C02·B3, corrobora B2(iii), REFUTA B1-C4] w=.87
 N21 ≡ **ANIQUILACIÓN CLARK–OCONE**: si Ψ(P)=E_P[φ] es invariante bajo TODA Q~P, entonces E[D_tφ|F_t]=0 y φ es c.s. constante. (b-fuerte) no admite funcional no trivial, y (b-débil)="depende solo de la ley de ⟨M⟩_H" NO es equivalente: presupone la escisión, o sea ya es paramétrica   [C02·B2] w=.83
@@ -136,7 +136,7 @@ N55 → N28           el mecanismo que el encargo N31 pedía, encontrado tras re
 N55 → N06           el modelo EVT cae por construcción del lado M2>1
 N55 ⊥ N50           T1 inactivo aquí (ρ≈5,4), T2 activo: son canales distintos
 
-N57 ≡ **EL CRUCE**: a 10 años un modelo MAL especificado con parámetros CONOCIDOS (ORÁCULO-GBM, RMSE 24,0%) bate a uno BIEN especificado con parámetros ESTIMADOS (MODELO-3, RMSE 56,6%). A 1 mes ocurre lo contrario y por un factor de ocho (3,1% vs 26,3%). **Entre un año y diez años, saber los parámetros de un modelo malo pasa a valer más que tener el modelo bueno y estimarlo**   [orq, medido] w=.90
+N57 ≡ **EL CRUCE**: a 10 años un modelo MAL especificado con parámetros CONOCIDOS (ORÁCULO-GBM, RMSE 24,0%) bate a uno BIEN especificado con parámetros ESTIMADOS (MODELO-3, RMSE 56,6%). A 1 mes ocurre lo contrario y por un factor de ocho (3,1% vs 26,3%). **Entre un año y diez años, saber los parámetros de un modelo malo pasa a valer más que tener el modelo bueno y estimarlo**   [orq, medido] w=.91
 
 N57 → N48           el cruce es la consecuencia operativa de la amplificación
 N57 ⊣ N27           y es lo que queda de N27 una vez quitado lo que no era cierto
@@ -195,3 +195,13 @@ N79 ≡ **EL RIVAL QUE IMPORTA — Danielsson (2002), «The emperor has no cloth
 N80 ≡ **LA REFORMULACIÓN**: si la tesis cualitativa es de 2002, la aportación posible es **la cuantificación**. Y hay una sola cifra medida, ortogonal y ausente de Danielsson: **N74** — factor 3,4× en el capital a 1 año y signo indeterminado a 10. Los ciclos 6-10 la vuelven irrefutable; todo lo demás pasa a contexto   [orq] w=.90
 
 N76 ⊣ N55 · N77 ⊣ N28 · N78 ⊣ (los tres mecanismos) · N79 ⊐ (todo el programa) · N80 → N74
+
+N81 ≡ **COTA INFERIOR COMPUTABLE Y ALCANZADA**: RMSE_rel(ÊS_{H,q}) ≥ √[(s_μ/c_q)²(H/n) + (λ_H/2)²g'Σ̂g + (∂log c_q/∂ν)²SE(ν̂)²], con λ_H=σ̄²(H−A_H)/V_H. Vale 5,4%/12,4%/**30,8%** a 1m/1a/10a con T=10a, **y se alcanza**: 800 ajustes MLE dan 5,5%/12,0%/32,6%, ratio 1,01/0,97/**1,06**. La literatura de método delta nunca la evalúa a horizonte multianual. **Bolsillo: RMSE_rel ≥ 0,27·√(H/T)** para H>1,1 años, evaluable con la salida de cualquier paquete GARCH sin simular   [C05·F1] w=.88
+N82 ≡ **TOPE DE SATURACIÓN DEL CANAL VOLATILIDAD**: la amplificación con el horizonte del error vía (ω,α,γ,β) está acotada por **(1−β)/(1−π)**; medido 4,50 vs 4,51 analítico. **La persistencia no puede explicar un crecimiento de 12,5×**. Los exponentes: a_μ=1,000 exacto para todo H (no satura), a_vol sube a 0,91 en H≈50d y cae a 0,508, a_ν=0,500 exacto   [C05·F1] w=.86
+N83 ≡ **CRUCE H\* = 1,1 AÑOS, INVARIANTE EN T**: H\*=(c_q·ς/2s_μ)²=276 días. Más allá de un año, **más datos no cambian QUÉ domina el error, solo su nivel**. A 10 años la deriva aporta 26,9 de los 30,8 puntos de la cota (76%); el canal volatilidad, 9,0   [C05·F1] w=.84
+N84 ≡ **MULTIPLICADOR DE CAPITAL POR ERROR DE ESTIMACIÓN** (medido, 800 réplicas): fijar capital en el p90 del error en vez del punto estimado multiplica por **1,45× a 10 años** (p95 1,57×, p99 1,79×), frente a 1,073× a 1 mes. Predecible antes de simular: exp(1,282·B)=1,48× vs 1,447× medido. Regulatorio con T=10a: FRTB 10d → 1,02× · Solvencia II 1a → 1,17× · **ECL vitalicia 10a → 1,45×** · con 5a de datos **1,63×** · con 3a **1,89×**. **La frontera M2 movía 1,011×; esto mueve cuarenta veces más**   [C05·F1] w=.90
+
+N81 → N48          explica el 62% de los +50 puntos a 10 años; el resto es polo + especificación
+N82 ⊣ (mi sospecha) la persistencia NO domina: satura. La deriva no
+N83 → N01          más allá de 1,1 años el error del ES es un problema de deriva, punto
+N84 ⊥ N74          dos cuotas distintas: 1,45× por ERROR DE ESTIMACIÓN, 3,4× por CONVENCIÓN
