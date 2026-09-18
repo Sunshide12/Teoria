@@ -131,49 +131,68 @@ datos disponible resuelve.
 
 ---
 
-## Medición de ρ sobre ajustes reales — y el fallo del propio diagnóstico
+## Medición de ρ sobre ajustes reales — y una retractación
 
-`ρ` se midió ajustando GJR-GARCH-t por máxima verosimilitud a series simuladas de un DGP
-con persistencia verdadera φ=0,99, con el error estándar de φ̂=α̂+γ̂/2+β̂ obtenido del
-hessiano numérico.
+**RETRACTACIÓN (ver abajo).** La primera versión de esta sección afirmaba que el
+diagnóstico ρ̂ está sesgado hacia la calma. Era falso, y el error era mío.
 
-| T | φ̂ medio | SE(φ̂) medio | **ρ̂ medido** | ρ p5–p95 | **ρ verdadero** |
+En el script de medición escribí «DGP con persistencia verdadera 0,99». El DGP de
+`motor/complejidad.py` tiene α=0,03, γ=0,09, β=0,90, luego su persistencia es
+
+```
+φ = α + γ/2 + β = 0,03 + 0,045 + 0,90 = 0,975
+```
+
+no 0,99. Comparé los ajustes contra un valor verdadero equivocado.
+
+Con el valor correcto:
+
+| T | φ̂ medio | SE(φ̂) | ρ̂ medido | **ρ verdadero (φ=0,975)** | error de φ̂ |
 |---|---|---|---|---|---|
-| 10 años | 0,9767 | 0,0067 | **3,49** | [2,33 · 4,41] | 1,49 |
-| 20 años | 0,9762 | 0,0046 | **5,10** | [3,82 · 8,04] | 2,17 |
+| 10 años | 0,9767 | 0,0067 | 3,49 | 3,73 | **−0,4%** |
+| 20 años | 0,9762 | 0,0046 | 5,10 | 5,43 | **−0,5%** |
+| 40 años | 0,9773 | 0,0030 | 7,34 | 8,33 | **−0,0%** |
 
-Dos hechos, y el segundo invalida el uso ingenuo del diagnóstico.
+El estimador de la persistencia está **prácticamente insesgado**, y ρ̂ sigue de cerca al ρ
+verdadero. **No hay ningún sesgo hacia la calma. N53 queda retractado por completo.**
 
-**Primero:** φ̂ sale 0,976 frente a 0,990. El estimador sitúa la persistencia **más lejos de
-la singularidad de lo que está**. Es el mismo sesgo direccional hacia el lado tranquilizador
-que se midió para M2 en N15 y N24, ahora en otro parámetro y con otro estimador.
+## Lo que eso le hace a T1
 
-**Segundo, y es el problema:** `ρ̂ = 5,10` mientras el ρ verdadero es 2,17. Y la brecha
-**crece con T** —de 3,49 a 5,10 al pasar de 10 a 20 años— porque el error estándar del
-denominador encoge mientras el sesgo del numerador persiste.
+La demostración sigue en pie: es matemática elemental y no depende de ninguna medición. Pero
+su **activación** sí depende de ρ, y aquí ρ ≈ 5,4, donde la cola de potencia existe pero es
+inobservable (Hill α ≈ 14, P(error>2×) ≈ 0,01%).
 
-Las consecuencias operativas son opuestas:
+Es decir: **T1 no está activo en el DGP con el que hemos trabajado, y por tanto no explica
+la razón RMSE/mediana de 8,7 que se midió para el modelo EVT a 10 años.** Esa sigue sin
+explicación, y el candidato que queda es el otro canal —la composición del error del
+parámetro de forma ξ de la Pareto generalizada sobre 2.520 pasos—, que hay que derivar
+aparte.
 
-| | ρ̂ = 5,1 (lo que uno mediría) | ρ = 2,2 (la verdad) |
-|---|---|---|
-| Hill α | ≈ 14 | ≈ 2,3 |
-| P(error de ES > 2×) | ≈ 0,01% | **≈ 3–4%** |
-| lectura | «cola de potencia inobservable» | «uno de cada treinta estimados está mal por más del doble» |
+Para que T1 esté activo hace falta φ cerca de 1. La renta variable real suele ajustar
+persistencias de 0,98–0,995; con φ=0,99 y SE≈0,005 sale ρ≈2 y la cola sí sería observable.
+**Pero eso no lo hemos medido**: solo lo hemos supuesto. Medir ρ sobre series reales es
+trabajo pendiente y es la única vía para saber si T1 importa o es una curiosidad.
 
-> **El diagnóstico que determina si la cola de potencia está activa está sesgado hacia decir
-> que no lo está, y cuantos más datos se acumulan, más seguro está de su error.**
+## Estado honesto de T1
 
-Esto pone a T1 en la misma familia que N33 (el muro autosellado) y N15 (el sesgo con
-dirección): no es solo que la cantidad relevante sea difícil de medir, es que **el
-instrumento falla sistemáticamente hacia la conclusión tranquilizadora**, y la acumulación
-de datos refuerza la falsa tranquilidad en vez de corregirla.
+| pieza | estado |
+|---|---|
+| La derivación del índice 2 | **correcta**, verificada numéricamente |
+| «El índice no depende de s, H ni p» | **correcta** |
+| «Solo es observable cuando ρ = O(1)» | **correcta**, verificada |
+| «ρ ≈ 2 en la práctica» | **no medido** — supuesto, y falso en nuestro DGP (ρ≈5,4) |
+| «Explica la razón RMSE/mediana de 8,7» | **refutado** — el canal no está activo aquí |
+| «El diagnóstico está sesgado hacia la calma» | **retractado** — error factual mío |
 
-Queda registrado como N53, y es lo que hay que atacar en el ciclo 5: si ρ̂ no sirve, ¿hay
-algún diagnóstico que sí? Y si no lo hay, la conjetura N52 pasa de interesante a
-inverificable — que es exactamente el tipo de resultado que esta investigación busca.
+T1 baja de w=0,85 a **w=0,55**: teorema correcto, relevancia empírica no establecida.
 
-**Caveat honesto:** el sesgo de φ̂ medido (−0,014) es grande y podría deberse en parte a las
-cotas del optimizador o al tamaño muestral, no solo a la no regularidad. La subestimación
-de la persistencia de GARCH en muestra finita es un hecho conocido; lo que aquí se añade es
-que **se propaga al diagnóstico de su propia fiabilidad con el signo equivocado**. Hay que
-comprobar con un estimador corregido por sesgo antes de darlo por establecido.
+## Nota de método
+
+Es la segunda vez en este ciclo que una afirmación mía se cae al comprobarla, y la primera
+en que el error es puramente factual: escribí un número equivocado en la cabecera de un
+script y construí encima. Queda escrito con el mismo detalle que la afirmación original,
+igual que la anterior.
+
+Lo que sí sostiene esta serie de tests: φ̂ y ω̂ **no** se compensan tan limpiamente como
+sugiere el folclore (el error de σ̄² es 5–10%, comparable al de ω̂), pero φ̂ está muy bien
+estimado, así que el denominador 1−φ no es la fuente de incertidumbre que yo suponía.

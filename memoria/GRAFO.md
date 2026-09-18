@@ -116,7 +116,7 @@ N49 ≡ **AUTOCORRECCIÓN**: afirmé, respondiendo al auditor, que el DGP perten
 N49 ⊣ N27           el mecanismo atribuido no está demostrado
 N48 → N27           lo único que sí sostiene el test del oráculo
 
-N50 ≡ **T1 — TEOREMA DE LA COLA DEL ERROR** (derivado por el orquestador, encargo N31): si ES ∝ (1−φ)^(−1/2) y φ̂ es asintóticamente normal con desviación s, el error relativo de ES tiene cola de potencia de **índice 2**, con C = φ_N(ρ)/(ρΦ_N(ρ)) y ρ=(1−φ)/s. El índice NO depende de s, H ni p: más datos bajan la constante, no la forma. Corolario: la varianza del estimador de ES está en la frontera de existencia   [orq, derivado+verificado] w=.85
+N50 ≡ **T1 — TEOREMA DE LA COLA DEL ERROR** (derivado por el orquestador, encargo N31): si ES ∝ (1−φ)^(−1/2) y φ̂ es asintóticamente normal con desviación s, el error relativo de ES tiene cola de potencia de **índice 2**, con C = φ_N(ρ)/(ρΦ_N(ρ)) y ρ=(1−φ)/s. El índice NO depende de s, H ni p: más datos bajan la constante, no la forma. Corolario: la varianza del estimador de ES está en la frontera de existencia   [orq, derivado+verificado] w=.55
 N51 ≡ **MATIZ DE T1**: el índice asintótico es 2 siempre, pero el Hill sobre el 2% superior da 2,28 a ρ=2 y 41 a ρ=10 — la cola de potencia existe siempre y **solo es OBSERVABLE cuando ρ=O(1)**. Esa es la afirmación falsable, porque ρ es medible   [orq, verificado] w=.88
 N52 ≡ **ρ = DISTANCIA A LA SINGULARIDAD** (conjetura unificadora): los tres resultados de no identificabilidad del grafo tienen la misma estructura — M2 a 1,2σ de 1 (N24), φ a 2,0σ de 1 (T1), d a 0,6σ de 3/8 (N44). **Los parámetros empíricamente relevantes de la volatilidad viven a uno o dos errores estándar de singularidades del funcional de riesgo, y esa proximidad convierte error normal de estimación en error de riesgo de ley de potencia**   [orq ⊕ C01,C02,C03] w=.70
 
@@ -124,7 +124,7 @@ N50 → N28           la derivación que el encargo N31 pedía
 N51 ⊣ N50           el índice universal solo es observable cerca de la singularidad
 N52 ⊕ N24 ⊕ N44 ⊕ N50   los tres comparten estructura: parámetro a O(1) errores estándar de una singularidad
 
-N53 ≡ **EL DIAGNÓSTICO FALLA HACIA LA CALMA**: ρ̂=(1−φ̂)/SE(φ̂) mide 3,49 (T=10a) y 5,10 (T=20a) cuando el ρ verdadero es 1,49 y 2,17. φ̂ sale 0,976 frente a 0,990 verdadero: el estimador sitúa la persistencia MÁS LEJOS de la singularidad de lo que está, y **la brecha crece con T** porque el SE encoge mientras el sesgo persiste. Lectura a ρ̂=5,1: «P(error>2×)≈0,01%». Verdad a ρ=2,2: «≈3–4%». El instrumento que decide si la cola está activa está sesgado a decir que no, y más datos refuerzan la falsa tranquilidad   [orq, medido] w=.80
+N53 ≡ [**RETRACTADO**] Afirmé que ρ̂ está sesgado hacia la calma. FALSO: comparé contra φ=0,99 cuando el DGP tiene φ=α+γ/2+β=0,975. Con el valor correcto φ̂ está insesgado (error −0,4%, −0,5%, −0,0%) y ρ̂ sigue de cerca al ρ verdadero. Error factual del orquestador   [orq, RETRACTADO] w=.0
 
-N53 ⊣ N52           si ρ̂ no sirve, la conjetura unificadora no es verificable con ρ̂
-N53 ≡ N15 ≡ N33     misma familia: el instrumento falla hacia la conclusión tranquilizadora
+N53 ⊣ N53           retractado por el propio orquestador
+N54 ≡ **T1 NO ESTÁ ACTIVO EN NUESTRO DGP**: con φ=0,975 y SE=0,0046 sale ρ≈5,4, donde la cola de potencia existe pero es inobservable (Hill α≈14, P(error>2×)≈0,01%). Luego **T1 no explica la razón RMSE/mediana de 8,7 del modelo EVT a 10 años**, que sigue sin explicación. El canal candidato que queda es la composición del error de ξ de la GPD sobre 2.520 pasos. Y «ρ≈2 en la práctica» es un SUPUESTO no medido: hace falta medir ρ sobre series reales   [orq] w=.85
