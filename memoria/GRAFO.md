@@ -33,3 +33,27 @@ N06 ⊣ N05            la frontera que decide el ritmo de agregación no es loca
 N10 ⊣ N03            si el estimando se mueve, ni siquiera n_eff está bien definido
 
 N15 ≡ El sesgo del estimador en el filo TIENE DIRECCIÓN: con 20a de datos el MLE sitúa M̂2<1 el 80% de las veces en que la verdad es M2>1. No es que no se pueda estimar — es que se estima mal hacia el lado tranquilizador. Precisión de clasificación 52,9% vs 50% de azar   [C01·A1 + verificación propia] w=.90
+
+N16 ≡ **TORRE DEL DRIFT**: el drift no es un canal sino una posición estructural que se reproduce en cada nivel de la jerarquía de volatilidad. θ (media de largo plazo de v) es el drift de v, con SE(θ̂)/θ=η/(κ√(2θT)) ∝ 1/√T. Subir un nivel traslada el problema, no lo resuelve   [C02·B1,B2 ⊕ +orq] w=.93
+N17 ≡ Contribución del estado presente observable a horizonte H con reversión κ: ρ(H)=(1−e^{−κH})/(κH) → 1/(κH). Con κ=5, H=10a: **2%**. Alta frecuencia da el presente con precisión ilimitada y el futuro con precisión nula   [C02·B2 +orq] w=.88
+N18 ≡ **CUOTA DECISIONAL INVARIANTE**: la parte del problema de decisión accesible a un funcional drift-invariante es de unidades porcentuales. Vol constante Φ=2S²/m (0,13% diario); Heston Φ_∞=S²η²/(2κ²θ+S²η²)≈2%; techo universal **1/4** (solo si ⟨σ²⟩⟨σ⁻²⟩=2). Los tres agentes   [C02·B1,B2,B3 ⊕] w=.94
+N19 ≡ **MONETARIEDAD ⊥ INVARIANCIA**: toda medida de riesgo aditiva en efectivo es Girsanov-equivariante (se desplaza en ∫θσds). La frontera Artzner(coherente)/Rockafellar(desviación) ES la frontera de Girsanov. Margen y vol-target son drift-libres por necesidad matemática; ES y capital económico no pueden serlo jamás   [C02·B3] w=.93
+N20 ≡ **COLAPSO DE VILLE POR SATURACIÓN**: si el nulo está saturado por equivalencia, todo e-proceso cumple ess-sup E_τ≤1 → error tipo I exactamente 0 y escala de evidencia vacía. Deja de ser test y pasa a certificado cuasi-seguro. Corolario: todo funcional invariante a cambio equivalente con Fatou colapsa al ess-sup   [C02·B3, corrobora B2(iii), REFUTA B1-C4] w=.87
+N21 ≡ **ANIQUILACIÓN CLARK–OCONE**: si Ψ(P)=E_P[φ] es invariante bajo TODA Q~P, entonces E[D_tφ|F_t]=0 y φ es c.s. constante. (b-fuerte) no admite funcional no trivial, y (b-débil)="depende solo de la ley de ⟨M⟩_H" NO es equivalente: presupone la escisión, o sea ya es paramétrica   [C02·B2] w=.83
+N22 ≡ **ESCAPATORIA ERGÓDICA**: si H≫τ_vol, Ψ deja de ser funcional de la ley TERMINAL y pasa a serlo de la ley INVARIANTE, con n_eff=(T/τ)^(1−2d) en vez de T/H. Con d=0,26, T=50a, τ=1mes: n_eff pasa de 5 a 21,6. **UMBRAL: la puerta se cierra si d > ≈0,37**, y el d≈0,4 de N12 la deja cerrada — pero dentro del error de estimación   [C02·B3] w=.70
+N23 ≡ **PARTICIÓN DEL EJE P**: la grieta P no era desacuerdo sino dos preguntas confundidas. Libre de modelo acierta en la ANCHURA (desviación, margen); paramétrico es imprescindible para la UBICACIÓN (capital, ES)   [C02·⊕] w=.85
+N24 ≡ La frontera M2=1 **no es identificable a ningún T**: el sesgo del MLE no encoge (−0,018 a 10a, −0,015 a 80a) mientras el SE sí (0,0124→0,0038). RMSE se estanca en ~0,015 > |M2−1|=0,011. Sospecha: el sesgo se hereda de ν̂, el índice de cola de la innovación — o sea N07 reapareciendo   [verificación propia] w=.85
+N25 ≡ **Lo que se refuta rápido es lo que no decide.** Refutar un error del 20% en varianza: ~4 días. En drift: 37–800 años. Ratio 10⁴–10⁵. Y la cuota decisional (N18) va exactamente al revés   [C02·B1,B2,B3 ⊕] w=.90
+N26 ≡ **INVERSIÓN κ=0**: si la volatilidad es no estacionaria (κ=0), E[v_H|v₀]=v₀ y no hay θ que estimar — la cuota observable es 1. Cuanto más no estacionaria la vol, MEJOR se pronostica su nivel medio y PEOR se comporta su cola. Las dos patologías apuntan en direcciones opuestas   [C02·orq] w=.60
+
+## Aristas (ciclo 2)
+
+N16 ⊣ N13            la torre degrada la síntesis del ciclo 1: no hay "el" drift que esquivar
+N21 ⊣ N09            Clark–Ocone niega que la escisión DDS sea invariante gauge
+N20 ⊣ N-B1C4         el colapso refuta que la invariancia REGALE refutabilidad: la regala vacía
+N18 ⊥ N25            lo relevante y lo refutable son ortogonales
+N19 → N23            la frontera Artzner/Rockafellar explica la partición
+N22 ⊣ N03            única ruta conocida que podría batir n_eff=T/H
+N24 ⊕ N22 ⇒ DOS fronteras de fase no identificables: M2=1 y d≈0,37
+N26 ⊥ N06            no estacionariedad: buena para el nivel, catastrófica para la cola
+N24 → N07            el sesgo de M̂2 se heredaría del índice de cola — a verificar
