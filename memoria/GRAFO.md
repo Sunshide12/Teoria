@@ -12,11 +12,11 @@ N05 ≡ La escalera NO colapsa a GBM en ningún horizonte humano. CV de varianza
 N06 ≡ Frontera de fase M2=E[(α+γ1{ε<0}+β)²]=1 empíricamente NO identificable: las acciones caen en M2≈1,0085±0,02 y la curtosis muestral (3,6→5,5) no distingue una poblacional de 13,5 de una infinita   [C01·A1 +verif] w=.90
 N07 ≡ EVT no es ajustable a horizonte largo: N_u=p_u·T/H. A H=10a con bloques no solapados N_u≈0,5. Toda aplicación de EVT a largo plazo usa solapamiento o una regla de agregación asumida   [C01·A2] w=.80
 N08 ≡ Colapso de canal: a H≫τ (mezcla) el futuro es cond. indep. del pasado dado θ, luego I(datos;futuro) ≤ I(datos;θ) ≈ (d/2)log₂T ≈ 50 bits. Toda la información pasa por θ   [C01·A3] w=.80
-N09 ≡ Dambis–Dubins–Schwarz: la ley de TODO funcional de trayectoria depende solo de la ley de ⟨M⟩_H más los saltos. La escalera entera es una reparametrización de ⟨M⟩. Solo el drift queda fuera   [C01·A3] w=.72
+N09 ≡ [DEBILITADO C02] Dambis–Dubins–Schwarz: la ley de TODO funcional de trayectoria depende solo de la ley de ⟨M⟩_H más los saltos. La escalera entera es una reparametrización de ⟨M⟩. Solo el drift queda fuera   [C01·A3] w=.55
 N10 ≡ Reflexividad: el estimando no está quieto, P=Φ(P̂). Migración de cola — tras estandarizarse una métrica, la crisis siguiente nace fuera de su perímetro (Basilea I→1998, VaR→2008, FRTB→2023)   [C01·A3] w=.68
 N11 ≡ N*≈T_eff/(H(1−q)): existe un número de trayectorias más allá del cual simular es teatro. T=20a,H=10a,q=.99 ⇒ N*≈200. Correr 40.000 es precisión espuria de 2 órdenes   [C01·A1] w=.75
 N12 ≡ T_eff=T^(1−2d) con d≈0,4 (memoria larga de |r|) ⇒ con T=100a, T_eff≈2,5a. El horizonte epistémico se mide en AÑOS, no en décadas   [C01·A1] w=.70
-N13 ≡ SÍNTESIS: el drift es el único canal irreducible Y es exactamente la dirección en la que las medidas son equivalentes. Un funcional invariante al drift sería estimable in-fill — ahí está la salida, si existe   [C01·⊕] w=.80
+N13 ≡ [DEGRADADO C02: solo vale en invariancia débil y H≪1/κ] SÍNTESIS: el drift es el único canal irreducible Y es exactamente la dirección en la que las medidas son equivalentes. Un funcional invariante al drift sería estimable in-fill — ahí está la salida, si existe   [C01·⊕] w=.62
 N14 ≡ SÍNTESIS: la escalera añade ESTRUCTURA, no INFORMACIÓN. Cambia la respuesta (N05) sin cambiar lo que puede saberse (N08). Resuelve la tensión: subir peldaños mueve el número y no mueve el conocimiento   [C01·⊕] w=.75
 
 ## Aristas
@@ -57,3 +57,10 @@ N22 ⊣ N03            única ruta conocida que podría batir n_eff=T/H
 N24 ⊕ N22 ⇒ DOS fronteras de fase no identificables: M2=1 y d≈0,37
 N26 ⊥ N06            no estacionariedad: buena para el nivel, catastrófica para la cola
 N24 → N07            el sesgo de M̂2 se heredaría del índice de cola — a verificar
+
+N27 ≡ **COMPLEJIDAD ÓPTIMA DECRECIENTE EN H** (verificado): modelo óptimo por RMSE = GJR-t+EVT(8p) a 1 mes → GARCH-N(4p) a 1 año → GBM(2p) a 10 años. La sofisticación que gana a corto pierde a largo. MATIZ: a 10a todos fallan (RMSE mínimo 47%); GBM gana por ser el menos catastrófico, no por ser bueno   [C02·orq, verificado] w=.85
+N28 ≡ **LA COLA DEL ERROR**: la distribución de error de un modelo de cola hereda las colas gordas del fenómeno que modela. A 10a el modelo EVT tiene RMSE 377% con mediana 43,6% (razón 8,7); el GBM 47,0%/35,1% (razón 1,34). El coste de la sofisticación no se paga en error típico sino en frecuencia de error catastrófico — y nadie lo mide porque nadie reporta la distribución del error de su modelo, solo el número   [C02·orq, verificado] w=.80
+
+N27 → N28            la monotonía y la curtosis del error son el mismo fenómeno visto dos veces
+N28 → N07            EVT no ajustable a H largo, apareciendo de forma dinámica en vez de estática
+N27 ⊣ N05            la escalera no colapsa a GBM, pero a H largo conviene usar GBM igualmente
