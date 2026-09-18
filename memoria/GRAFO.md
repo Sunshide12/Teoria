@@ -128,3 +128,10 @@ N53 ≡ [**RETRACTADO**] Afirmé que ρ̂ está sesgado hacia la calma. FALSO: c
 
 N53 ⊣ N53           retractado por el propio orquestador
 N54 ≡ **T1 NO ESTÁ ACTIVO EN NUESTRO DGP**: con φ=0,975 y SE=0,0046 sale ρ≈5,4, donde la cola de potencia existe pero es inobservable (Hill α≈14, P(error>2×)≈0,01%). Luego **T1 no explica la razón RMSE/mediana de 8,7 del modelo EVT a 10 años**, que sigue sin explicación. El canal candidato que queda es la composición del error de ξ de la GPD sobre 2.520 pasos. Y «ρ≈2 en la práctica» es un SUPUESTO no medido: hace falta medir ρ sobre series reales   [orq] w=.85
+
+N55 ≡ **T2 — AUTOVIOLACIÓN DEL MODELO DE COLA** (medido, 20 ajustes): el FHS+EVT produce ξ̂ en la cola de pérdidas con media **+0,372** y **95% de los ajustes por encima de 1/4**, es decir innovaciones SIN CUARTO MOMENTO. Cuarto momento muestral de la empalmada: mediana 117, p95 10.224, máx 57.708 (normal=3, t(7)=5), CV entre ajustes **3,32**. Al pasarlas por la recursión GARCH el proceso simulado tiene M2=∞>1 y su ES **no tiene varianza finita**. El modelo construido para no subestimar las colas se coloca por construcción del lado no identificable de la frontera N06   [orq, medido] w=.88
+N56 ≡ **EL MECANISMO DE N28 ES MULTIPLICATIVO, NO ADITIVO**: sumar H variables de índice 1/ξ solo da factor e^(ξ lnH)≈18 a H=2520. Lo que explota es la realimentación GARCH: cada innovación grande entra al cuadrado en la recursión y eleva la varianza futura. Con E[z⁴]=∞ la condición M2<1 falla y la varianza del proceso simulado no converge   [orq] w=.82
+
+N55 → N28           el mecanismo que el encargo N31 pedía, encontrado tras retractar T1
+N55 → N06           el modelo EVT cae por construcción del lado M2>1
+N55 ⊥ N50           T1 inactivo aquí (ρ≈5,4), T2 activo: son canales distintos
