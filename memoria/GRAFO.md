@@ -115,3 +115,11 @@ N49 ≡ **AUTOCORRECCIÓN**: afirmé, respondiendo al auditor, que el DGP perten
 
 N49 ⊣ N27           el mecanismo atribuido no está demostrado
 N48 → N27           lo único que sí sostiene el test del oráculo
+
+N50 ≡ **T1 — TEOREMA DE LA COLA DEL ERROR** (derivado por el orquestador, encargo N31): si ES ∝ (1−φ)^(−1/2) y φ̂ es asintóticamente normal con desviación s, el error relativo de ES tiene cola de potencia de **índice 2**, con C = φ_N(ρ)/(ρΦ_N(ρ)) y ρ=(1−φ)/s. El índice NO depende de s, H ni p: más datos bajan la constante, no la forma. Corolario: la varianza del estimador de ES está en la frontera de existencia   [orq, derivado+verificado] w=.85
+N51 ≡ **MATIZ DE T1**: el índice asintótico es 2 siempre, pero el Hill sobre el 2% superior da 2,28 a ρ=2 y 41 a ρ=10 — la cola de potencia existe siempre y **solo es OBSERVABLE cuando ρ=O(1)**. Esa es la afirmación falsable, porque ρ es medible   [orq, verificado] w=.88
+N52 ≡ **ρ = DISTANCIA A LA SINGULARIDAD** (conjetura unificadora): los tres resultados de no identificabilidad del grafo tienen la misma estructura — M2 a 1,2σ de 1 (N24), φ a 2,0σ de 1 (T1), d a 0,6σ de 3/8 (N44). **Los parámetros empíricamente relevantes de la volatilidad viven a uno o dos errores estándar de singularidades del funcional de riesgo, y esa proximidad convierte error normal de estimación en error de riesgo de ley de potencia**   [orq ⊕ C01,C02,C03] w=.70
+
+N50 → N28           la derivación que el encargo N31 pedía
+N51 ⊣ N50           el índice universal solo es observable cerca de la singularidad
+N52 ⊕ N24 ⊕ N44 ⊕ N50   los tres comparten estructura: parámetro a O(1) errores estándar de una singularidad
