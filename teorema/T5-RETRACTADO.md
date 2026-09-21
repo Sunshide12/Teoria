@@ -128,3 +128,123 @@ Lo que **sí** se puede hacer hoy —y es lo que el algoritmo propone— es **de
 convenio publicado** en vez de fijarlo a cero en silencio. Eso no reduce el error: lo
 convierte de ruido invisible en sesgo auditable (N98). Y el sesgo auditable es el que, con
 los años, alguien podrá comprobar.
+
+---
+---
+
+# RETRACTACIÓN COMPLETA (ciclo 8)
+
+*Todo lo anterior se conserva íntegro. Lo que sigue es por qué no sirve.*
+
+T5 cae por tres motivos, y el tercero es que **era incorrecto**.
+
+## 1. La pieza (a) está publicada literal
+
+**Danielsson & Zigrand (2006), «On time-scaling of risk and the square-root-of-time rule»,
+*J. Banking & Finance* 30(10):2701–2713.** Verificado por extracción íntegra: **36 ocurrencias
+de «drift»**.
+
+§3, primera línea:
+
+> *«It is **well-known** that the square-root-of-time rule is invalid over longer horizons,
+> **even in the absence of jumps, fat tails or time-varying volatility, for the drift matters
+> over longer horizons**.»*
+
+Ecuación (4):
+
+> *«**Absent the drift term −μηk, it embodies the square-root-of-time rule.**»*
+
+Y §4, titulada literalmente **«More on Scaling with a Positive Drift»**:
+
+> *«In most applications of the square-root-of-time rule to risk management, **it is assumed
+> that the drift is zero**. This practice has also been advocated, among others, by
+> Jorion (2001).»*
+
+Más: *«there is no obvious way to obtain an accurate estimate of the drift (see e.g.
+Merton, 1981)»* — que es N01 y N73 enunciados en una línea, con cita de 1981.
+
+**El flanco que el encargo del ciclo 8 señalaba como el más preocupante se confirmó. La
+segunda vía no confirmaba la ausencia: la refuta.**
+
+## 2. La pieza (c) es Dowd–Blake–Cairns verbatim
+
+> *«the magnitude of the error associated with the square-root rule thus rises with the time
+> horizon. **In addition, this error rises with µ, because the square-root formula makes no
+> proper allowance for the impact of the compounding of µ in the VaR**.»*
+
+Con su Tabla 1 reproducida a tres decimales por el auditor.
+
+## 3. Y la pieza (b) —la central— es FALSA
+
+Esto es lo grave, y no es cuestión de precedente.
+
+La biyección de Rockafellar–Uryasev–Zabarankin `R(X) = D(X) − E[X]` cae en la clase
+**coherente** solo bajo **dominancia de rango inferior**: `D(X) ≤ E[X] − inf X`.
+
+Y `k_α·σ` viola esa condición para todo `k_α > 1`.
+
+**Contraejemplo, verificado:**
+
+| | X = (0, 0) | Y = (0, 10) |
+|---|---|---|
+| E | 0,00 | 5,00 |
+| σ | 0,00 | 5,00 |
+| D = k·σ | 0,00 | **13,33** |
+| E − inf | 0,00 | 5,00 |
+| ¿dominancia? | sí | **NO** |
+| **R = D − E** | **0,00** | **8,33** |
+
+`Y ≥ X` en todos los estados. Una medida coherente exige **monotonía**: `Y ≥ X ⟹ R(Y) ≤ R(X)`.
+Aquí `R(Y) = 8,33 > R(X) = 0`. **Viola monotonía.**
+
+> **El «objeto correcto» que T5 exigía no es una medida de capital: es el principio de prima
+> por desviación típica, que no es monótono.**
+
+Umbral exacto para el ES: `k_α = 1` en **α = 61,89%**. Tanto el ES₉₇,₅ de FRTB como el ES₉₉
+están muy por encima. **La construcción falla en todos los niveles regulatorios.**
+
+Solo la versión con ES-desviación sobrevive (esa sí está dominada, con igualdad exacta en
+leyes de dos puntos). Pero entonces ya no es T5: es RUZ 2006.
+
+## 4. Y la ausencia verificada era de dos artículos, no de la literatura
+
+N91 decía «toda la literatura de riesgo de modelo… nunca lo menciona». **El recuento sobre
+Danielsson (2002) y Danielsson–James–Valenzuela–Zer (2016) se mantiene** —cero ocurrencias en
+esas 64 páginas— pero la generalización es falsa: **el mismo Danielsson lo menciona en 2006**,
+lo nombra, lo atribuye a Jorion, y añade la inestimabilidad de μ citando a Merton.
+
+**N91: 0,92 → 0,35.**
+
+## 5. El impacto decisional, que además no llegaba
+
+| horizonte | brecha de T5 |
+|---|---|
+| FRTB, 10 días | **1,029×** |
+| Solvencia II, 1 año | **1,164×** |
+| ECL vitalicia, 10 años | 1,802× |
+
+**En los dos horizontes regulatorios vivos está por debajo de 1,3×: es ruido por la regla de
+la propia investigación.** Y el 1,802× de diez años es la Tabla 1 de Dowd–Blake–Cairns 2004.
+
+## 6. Lo que sobrevive
+
+> Nadie cierra el bucle: **la brecha es μH, μ no es estimable a la precisión necesaria, luego
+> la brecha no es un error corregible sino una banda irreducible.**
+
+Dowd–Blake–Cairns dicen «toma una postura». Danielsson–Zigrand lo mencionan y lo sueltan.
+Ninguno lo cierra.
+
+Con T=10 años y σ=16%: `SE(μ̂) = 5,06%/año`, y ±1,96·SE da una banda de capital de **1,983
+sobre un número reportado de 1,348: el 147%**. Frente al 0,79% a diez días.
+
+**Eso es N74, no T5.** Y es lo que queda como núcleo del entregable.
+
+## 7. Nota de método
+
+Sexta retractación en ocho ciclos, y la única en la que el resultado no solo estaba publicado
+sino que además era **matemáticamente incorrecto**. El error: apliqué una biyección sin
+comprobar la condición bajo la que vale.
+
+El agente se lanzó precisamente para auditar T5 antes de escribirlo, y lo tumbó en el mismo
+ciclo en que se propuso. Eso es lo que el bucle debe hacer, y es lo que no hizo con la
+frontera de cuarto momento, que sobrevivió cuatro ciclos.
