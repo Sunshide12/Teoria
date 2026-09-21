@@ -5,3 +5,4 @@ C02|k0.62|c[.68,.45,.73,.44,.50,.74]|D=P0.34|GRI|N:16-26|>N16,N23,N25|q:la escap
 C03|k0.69|c[.46,.62,.57,.58,.77,.80]|D=E0.26|GRI|N:33-47|>N02gen,N03cota,N42|q:se puede decidir con T anios de datos si el proceso TIENE ley invariante? demostrarlo como cota de Le Cam, no como meseta de RMSE
 C04|k----|c[.76,.51,.73,.45,.49,.78]|D=E----|ADV|N:58-70|>N69,N70|q:la linea M2 es irrelevante (1.01x). Lo que mueve la decision es el error de estimacion amplificado por el horizonte. Cuantificarlo y acotarlo.
 C05|k0.71|c[.88,.66,.78,.58,.94,.90]|D=E0.34|GRI|N:71-89|>N74,N81,N87|q:la aportacion es la CUANTIFICACION (Danielsson 2002 tiene la tesis). Construir el algoritmo completo y volver irrefutable el factor 3.4x-8.3x de capital libre de dato.
+C06|k----|c[.88,.65,.60,.65,.95,.85]|ADV|N:91-101|>N96(T3),N99|q:T3 es novedoso o es la polemica de time diversification con vocabulario nuevo? donde esta el punto de cruce exacto especificacion/estimacion?
