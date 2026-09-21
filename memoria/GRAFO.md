@@ -272,3 +272,10 @@ N110 → N109         el eje mayor después de la ventana
 N111 ⊣ N96          el signo, que era la dramatización de T3, no mueve capital
 N113 → N91          la ausencia de la media no es olvido: es un cambio de axiomática no declarado
 N114 ⊣ N96 ← N60    la forma de la conclusión depende de lo indecidible
+
+N116 ≡ **T5 — LA INCOHERENCIA AXIOMÁTICA** (síntesis de 7 ciclos): una medida usada como CAPITAL debe ser aditiva en efectivo (Artzner 1999); una de DESVIACIÓN es invariante a traslación (RUZ 2006); y ambas clases difieren **exactamente en E[X]**. La regla √t reporta k_α·σ·√H, que no contiene μ ⇒ **es una desviación, usada como capital**. **La brecha es exactamente μH = el parámetro que N91 verificó ausente de 64 páginas.** Adimensional: brecha = Ŝ√H/k_α = **2,8% a 10 días, 44,5% a 10 años, 77,1% a 30**. En capital: 1,029× / 1,802× / **4,360×**. El número reportado **no es una estimación sesgada del capital: es un objeto de otra clase axiomática con el nombre de la primera**   [C07·orq, síntesis] w=.85
+N117 ≡ **LA IRONÍA DEL CICLO 2**: el resultado que aquel ciclo dio por más limpio —«la frontera Artzner/Rockafellar es la de Girsanov»— fue tumbado por la primera auditoría como reformulación de RUZ 2006 (w .93→.25). **Cinco ciclos después ese mismo teorema es el instrumento que explica el hallazgo central.** No era nuestro resultado: es nuestra herramienta. El auditor tenía razón en tumbarlo como aportación, y el trabajo en haberlo buscado   [C07·orq] w=.95
+
+N116 ← N19 ← N91 ← N113     la cadena completa: el teorema tumbado en C02 explica el hallazgo de C06
+N116 → N73                  y la brecha es μH, que exige 983 años para fijarse
+N117 ⊐ N19                  lo tumbado como aportación sobrevive como instrumento
