@@ -228,3 +228,12 @@ N92 ⊣ N29          la métrica del rival no existe donde nosotros medimos
 N93 → N73          el mecanismo de transmisión: correcta a 10 días, falsa a 10 años
 N94 ⊣ N03          desacuerdo con el mismo texto que nos quitó N03
 N95 ⊣ N80          la aportación es el par N73+N57, no N74
+
+N96 ≡ **T3 — HORIZONTE DE DETERMINACIÓN DEL SIGNO** (resultado principal, derivado y verificado por el orquestador): el ES cruza cero en μ*=k_α·σ/√H, y su signo está indeterminado cuando μ* cae en el IC de μ̂. Dividiendo por σ **la volatilidad desaparece**: |Ŝ − k_α/√H| < z/√T, de donde **H\* = [k_α/(Ŝ + z/√T)]²**. Verificado: con Ŝ=0,375 y T=10a, P(ES<0) pasa de 0,5% a H=5 a **2,5% justo en H\*=7,18** y 24,4% a H=20. Con Ŝ=0,375 y 10 años de datos **el signo del ES₉₉ está determinado solo hasta 7,2 años**; con 100 años, hasta 21,8. IFRS-9 (10–30a) y pensiones (20–40a) quedan fuera   [C06·orq] w=.90
+N97 ≡ **LA CUOTA EPISTÉMICA DEL HORIZONTE**: con datos infinitos H\*_∞=(k_α/Ŝ)² — eso no es ignorancia sino un hecho sobre el activo. La razón **H\*(T)/H\*_∞ = [Ŝ/(Ŝ+z/√T)]²** es la fracción que sobrevive. Con Ŝ=0,375 y T=10a vale 0,142: **la ignorancia sobre μ quita el 85,8% del rango de horizontes en que el signo estaría determinado si μ se conociera**   [C06·orq] w=.88
+N98 ≡ **DECLARAR μ CONVIERTE VARIANZA EN SESGO** (medido): a 10 años la desviación del ES pasa de 0,5063 (μ estimado) a 0,0190 (μ declarado), factor **26,7×** — pero aparece un sesgo (μ_dec−μ_real)·H = 0,40 si el convenio yerra 4 puntos. **El error total no baja: cambia de ruido invisible a sesgo declarado.** Y el rango de tres convenios cubre solo el 53,5% de lo que habría salido estimando: declarar tres valores SUBESTIMA la incertidumbre salvo que el rango se elija para cubrir el IC   [C06·orq, medido] w=.88
+
+N96 ← N73 ← N91     el criterio estaba escondido detrás de la convención μ≡0 que nadie declara
+N96 ← N71           sale de la descomposición H²σ²/T + Hk²σ²/(2fT): el primer término es el 99,86% a 10a
+N97 ⊂ N96           separa la indeterminación epistémica del hecho real sobre el activo
+N98 → N87           la justificación correcta del algoritmo no es «reduce el error» sino «lo hace auditable»
