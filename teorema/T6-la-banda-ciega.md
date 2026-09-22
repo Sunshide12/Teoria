@@ -173,19 +173,27 @@ rechaza al 1% con HAC bajo los tres proxies.
 
 ---
 
-## Por qué hacen falta 11.707 años
+## Por qué hacen falta ~10⁴ años
 
-Porque `H=10` cae a un 4% de `H₀ = 10,444`.
+Porque `H=10` cae a un 4% de `H₀ = 10,444`, y `T_req = [z/(k_α/√H − Ŝ)]²` diverge ahí.
 
 | H | años de régimen estacionario necesarios |
 |---|---|
 | 5 | 28 |
 | 7 | 115 |
-| 9 | 947 |
-| **10** | **11.707** |
-| 12 | 1.255 |
+| 9 | ~950 |
+| **10** | **~1,2 × 10⁴** |
+| 12 | ~1.250 |
 | 20 | 73 |
 
-Esa tabla es el contenido entero del encargo original: *un teorema que sólo se pueda
-comprobar a través de los años*. No por elección retórica — por la aritmética de
-`[z/(k_α/√H − Ŝ)]²`.
+**Aviso de precisión, y es importante.** A `H=10` el denominador `k_α/√H − Ŝ` vale
+**0,018**: la cifra es sensible al **quinto decimal de Ŝ**. Con `Ŝ = 0,8247` salen 11.707
+años; con Ŝ a precisión completa, 11.717. **Ese dígito no significa nada.** Lo que no
+se mueve con ningún redondeo es el orden de magnitud: **dos órdenes por encima de la
+historia disponible y tres por encima de la edad del régimen.** Citar «11.707» como si
+fuera una medición sería exactamente el tipo de falsa precisión que este proyecto ha
+retractado nueve veces.
+
+Con esa salvedad, la tabla es el contenido entero del encargo original: *un teorema que
+sólo se pueda comprobar a través de los años*. No por elección retórica — por la
+aritmética de `[z/(k_α/√H − Ŝ)]²` cerca de su polo.

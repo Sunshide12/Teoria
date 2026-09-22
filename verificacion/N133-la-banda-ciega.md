@@ -104,12 +104,18 @@ años**, donde el requisito de capital es exactamente cero. Un cero no tiene sig
 |---|---|
 | 5 | 28 |
 | 7 | 115 |
-| 9 | 947 |
-| **10** | **11.707** |
-| 12 | 1.255 |
+| 9 | ~950 |
+| **10** | **~1,2 × 10⁴** |
+| 12 | ~1.250 |
 | 20 | 73 |
 
-Diez años cae a un 4% de H₀. De ahí los 11.707 años.
+Diez años cae a un 4% de H₀.
+
+> **Corrección de precisión (ciclo 10).** A H=10 el denominador `k_α/√H − Ŝ` vale 0,018,
+> así que `T_req` es sensible al **quinto decimal de Ŝ**: 11.707 con Ŝ=0,8247 redondeado,
+> **11.717** con Ŝ a precisión completa. Esos dígitos no significan nada. Lo robusto es el
+> orden de magnitud. Lo mismo vale para la banda de muestra completa del §falsador:
+> (10,42 , 37,77) con 1.200 meses, **(10,39 , 37,52) con los 1.201 reales**.
 
 ## 7. La objeción más fuerte, respondida con números
 

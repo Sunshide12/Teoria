@@ -77,8 +77,10 @@ ventana para determinar el signo a diez años, y sólo hay **85** sin cruzar la 
 volatilidad de 1941. **El conjunto de ventanas admisibles está vacío**, y la banda
 —(6,60 , 18,96) años— contiene la ECL vitalicia y el ALM de pensiones.
 
-Sacar H=10 de esa banda exige **11.707 años** de régimen estacionario, porque 10 cae a un
-4% del punto `H₀ = (k_α/Ŝ)²` donde el requisito vale cero — y un cero no tiene signo.
+Sacar H=10 de esa banda exige del orden de **10⁴ años** de régimen estacionario, porque
+10 cae a un 4% del punto `H₀ = (k_α/Ŝ)²` donde el requisito vale cero — y un cero no
+tiene signo. (La cifra exacta —11.707 ó 11.717— depende del quinto decimal de Ŝ y **no
+debe citarse**: lo robusto es el orden de magnitud.)
 
 ## Lo que no es
 
