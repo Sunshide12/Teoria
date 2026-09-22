@@ -1,0 +1,228 @@
+{
+  "nombre": "Protocolo de falsacion T6 — la banda ciega",
+  "version": "1.0",
+  "fecha_preregistro": "2026-09-22",
+  "origen": "ciclo 9 del bucle multiagentico; grafo en memoria/GRAFO.md",
+  "serie_congelada": {
+    "nombre": "Fama-French Research Data Factors, mensual",
+    "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip",
+    "variable": "Mkt-RF + RF  (rentabilidad total del mercado, en tanto por uno mensual)",
+    "primera_obs": "1926-07",
+    "ultima_obs_al_sellar": "2026-07",
+    "n_meses_al_sellar": 1201,
+    "sha256_csv_al_sellar": "347bdcabb60863073a120111b40cb21b1a0682d6a82e919df057bdbea15e3a73",
+    "nota": "Si el proveedor revisa la historia anterior a 2026-07, el hash no coincidira. Eso NO anula el protocolo: se documenta la revision y se resuelve sobre la serie revisada, registrando ambos resultados."
+  },
+  "constantes_congeladas": {
+    "alpha": 0.99,
+    "k_alpha": 2.665214220345808,
+    "k_alpha_definicion": "phi(z_alpha)/(1-alpha), factor del Expected Shortfall gaussiano",
+    "z": 1.959963985,
+    "nivel_ruptura": 0.01,
+    "valor_critico_supWald": 12.35,
+    "recorte_ruptura": 0.15,
+    "proxy_volatilidad": "log(r^2), |r| y r^2 — los tres deben coincidir",
+    "hac": "Newey-West, lag = floor(4*(n/100)^(2/9))",
+    "H_objetivo_anios": 10.0,
+    "umbral_impacto_decisional": 1.3
+  },
+  "medido_al_sellar": {
+    "ruptura_volatilidad": "1941-08",
+    "supWald_HAC": {
+      "log(r^2)": 16.8,
+      "|r|": 40.7,
+      "r^2": 38.8
+    },
+    "T_est_anios": 85.0,
+    "S_sombrero_ventana_T_est": 0.8247,
+    "banda_H_menos": 6.6,
+    "banda_H_mas": 18.96,
+    "H0_limite": 10.444,
+    "T_det_H10_anios": 96,
+    "ES99_H10_mu_cero": 1.3408,
+    "ES99_H10_mu_estimada_T10": -0.1842,
+    "razon_exceso_revision_medido_sobre_teorico": {
+      "T=10": 1.054,
+      "T=20": 1.165,
+      "T=30": 1.11
+    },
+    "potencia_empirica_P1": 0.953,
+    "banda_predictiva_H_menos": 7.16,
+    "banda_predictiva_H_mas": 24.4,
+    "H0_predictivo": 11.907,
+    "razon_firma_revision_MEDIDA": 3.04,
+    "razon_firma_revision_RETRACTADA_del_ciclo_8": 48.0,
+    "nota_retractacion": "El 48x del ciclo 8 suponia sigma constante. Medido sobre 90 reestimaciones reales: 3.04x. Lo que sobrevive es la IGUALDAD del exceso de varianza (P-2), verificada a 1.054/1.165/1.110.",
+    "corroboracion_externa_Fed_2025": "Cambios interanuales del stress capital buffer: 65 pb sobre nivel medio 3.88 pp => sigma ~ 21.0% del nivel, frente al 20.4% predicho. Fuente: Board of Governors, 17-abr-2025."
+  },
+  "puerta_bibliografica": {
+    "regla": "Se ejecuta ANTES que el test empirico. Si existe precedente publicado con fecha anterior a fecha_preregistro que calcule el MISMO numero por el MISMO mecanismo, la prediccion afectada es MOOT y no se resuelve empiricamente.",
+    "criterio_de_novedad": "Un claim es nuevo solo si implica un numero que un articulo publicado calcule distinto.",
+    "regla_captura_recaptura": "Ninguna afirmacion de novedad es admisible mientras la fraccion de literatura no vista, estimada por Chapman, supere el 0.20.",
+    "precedentes_conocidos_al_sellar": [
+      "Merton 1980, On estimating the expected return on the market, JFE — SE(mu)=sigma/sqrt(T)",
+      "Danielsson 2002, The emperor has no clothes, JBF — n_eff = T/H",
+      "Dowd, Blake & Cairns 2004, Long-term value at risk — sensibilidad creciente a mu",
+      "Danielsson & Zigrand 2006, On time-scaling of risk and the square-root-of-time rule, JBF — la brecha mu*H y la regla corregida por media",
+      "Rockafellar, Uryasev & Zabarankin 2006 — desviacion vs capital",
+      "Lo 2002, The statistics of Sharpe ratios, FAJ — T = (z/S)^2",
+      "Pastor & Stambaugh 2012, JF — varianza predictiva creciente con el horizonte",
+      "Kerkhof, Melenberg & Schumacher 2010, JBF — riesgo de modelo, aplicado a T=1/252"
+    ],
+    "estado": "CERRADA el 2026-09-22 por el ciclo 9: tres buscadores con consultas preregistradas disjuntas (econometrico, inversion, regulatorio/actuarial), 54 consultas, 27 textos integros extraidos.",
+    "precedentes_hallados": [
+      {
+        "cita": "Noguer i Alonso 2026, Markets Are Not Random, They Are Hard to Predict, arXiv:2606.08209, ec. (21)",
+        "hallado_por": "J1 y J2, de forma independiente",
+        "cubre": "T_req = ((z+z_beta)/theta)^2. Evaluada en S=0.375 da 55.81 anios: el numero exacto que el ciclo 8 reclamaba.",
+        "bloquea": null,
+        "efecto": "El calculo de tamano muestral queda RETIRADO como aportacion. No es prediccion de este protocolo; se cita como antecedente obligatorio."
+      },
+      {
+        "cita": "Giller 2024, Isotropic Correlation Models for the Cross-Section of Equity Returns, arXiv:2411.08864, ecs. (17)-(18)",
+        "hallado_por": "J1",
+        "cubre": "0 <= N* <= 1/rho. Con rho=0.6 da 16.67 anios efectivos: el numero exacto del techo transversal.",
+        "bloquea": null,
+        "efecto": "El techo T_eff <= T/rho queda RETIRADO como aportacion."
+      },
+      {
+        "cita": "Spadafora, Dubrovich & Terraneo 2014, Value-at-Risk time scaling for long-term risk estimation, arXiv:1408.2462",
+        "hallado_por": "J3 (y J2 de forma independiente)",
+        "cubre": "'the sample uncertainty of the empirical estimation of the short-term mean is typically comparable to the value itself. Therefore we deem reasonable to set the long-term mean to zero'. La justificacion ESTADISTICA de mu=0, no prudencial.",
+        "bloquea": null,
+        "efecto": "La tesis CUALITATIVA queda RETIRADA como aportacion. No calculan ninguna banda ni ningun horizonte."
+      },
+      {
+        "cita": "Richards, Currie & Ritchie 2012, A Value-at-Risk framework for longevity trend risk, IFoA -> British Actuarial Journal 19(1)",
+        "hallado_por": "J3",
+        "cubre": "El diagnostico de revision a un ano: simular un ano extra de datos, reajustar, y usar la dispersion de la revision del numero de riesgo; descompuesto en sigma_drift (parametro) y sigma_epsilon (volatilidad).",
+        "bloquea": null,
+        "efecto": "P-1 pierde su MECANISMO como aportacion: el diagnostico esta publicado desde 2012 en longevidad. P-1 sigue en pie como PREDICCION FECHADA sobre retornos de activos con un numero que nadie calcula, y DEBE citar a Richards et al. en la primera linea. Advertencia de la propia fuente, §8.7: a horizonte de un ano domina la volatilidad, no el riesgo de parametro."
+      },
+      {
+        "cita": "Pitera, Schmidt & Stettner 2023, A novel scaling approach for unbiased adjustment of risk estimators, arXiv:2312.05655, ec. (3.2) y Remark 5.2",
+        "hallado_por": "J1",
+        "cubre": "rho(Z) = -m*mu + sqrt(m)*(rho(Z1)+mu) con mu sustituida por mu_hat, mas el diagnostico de que la condicion mu << sigma es la que decide si la correccion de media importa. Y: 'A large positive mean can lead to a negative risk measure'.",
+        "bloquea": null,
+        "efecto": "Es el rival mas cercano al teorema. NOMBRAN la condicion; no la invierten en una banda de horizontes, no la calculan, y su horizonte maximo es 250 dias. Cita obligatoria en la primera linea."
+      },
+      {
+        "cita": "Muller & Watson 2016, Measuring Uncertainty about Long-Run Predictions, REStud 83(4), Tabla 5; y Fama & French 2018, Volatility Lessons, FAJ 74(3)",
+        "hallado_por": "J2",
+        "cubre": "Conjuntos de prediccion al 90% del rendimiento real anualizado que cruzan cero a 10-75 anios (serie larga h=10: -3.9 a 18.4); y P(premio negativo) ~ 15.6% a diez anios.",
+        "bloquea": null,
+        "efecto": "El INSUMO del cruce por cero esta publicado en dos revistas de primer nivel. Lo que no esta es propagarlo a traves de ES(alpha,H) ni la banda en H. Cita obligatoria."
+      },
+      {
+        "cita": "Barberis 2000, JF 55(1); Pitera & Schmidt 2018, JBF",
+        "hallado_por": "J1",
+        "cubre": "El estimador predictivo: integrar mu fuera. Produce siempre un capital MAYOR.",
+        "bloquea": null,
+        "efecto": "Es la objecion mas fuerte al teorema, y esta RESPONDIDA con numeros en verificacion/N133 §7: el predictivo desplaza la banda de (6.60,18.96) a (7.16,24.40) y la ENSANCHA un 39%. Anade varianza, no informacion sobre mu."
+      },
+      {
+        "cita": "AAA/NAIC 2005, C-3 Phase II RBC for Variable Annuities: Pre-Packaged Scenarios, Tablas 6 y 15",
+        "hallado_por": "J3",
+        "cubre": "Prescribe deriva de renta variable A=0.055 instantaneo, y publica factores de acumulacion a 20 anios al percentil 0.5% por ENCIMA de 1 para los tres activos de renta fija: requisito de capital negativo, tabulado sin comentario.",
+        "bloquea": null,
+        "efecto": "REFUTA UNA PREMISA NUESTRA: 'la convencion regulatoria es fijar mu=0' es especifica de la banca de negociacion. El mundo actuarial prescribe mu por decreto y sin banda de confianza. El teorema aplica ahi con mas fuerza, no con menos."
+      },
+      {
+        "cita": "Directiva Solvencia II, Art. 101(3)",
+        "hallado_por": "J3",
+        "cubre": "'With respect to existing business, it shall cover only unexpected losses.'",
+        "bloquea": null,
+        "efecto": "RESTRICCION DE ALCANCE, no precedente: bajo esa definicion mu se cancela identicamente y no hay problema de signo. El teorema aplica al ES plug-in usado como NIVEL (IFRS 9, C-3 RBC, ALM), no al SCR."
+      }
+    ],
+    "captura_recaptura_corregida": {
+      "hallazgo": "La regla del ciclo 8 aplicaba un Chapman unico sobre la union de vecindarios. Es invalido: Chapman exige captura homogenea.",
+      "evidencia": "Solapamientos por parejas en el ciclo 9: J1xJ2 = 7/23 = 0.304; J1xJ3 = 0/17 = 0.000; J2xJ3 = 1/17 = 0.059. Factor >5 entre tasas. Homogeneidad refutada.",
+      "regla_nueva": "La fraccion no vista se estima POR ESTRATO. Un estrato con una sola muestra no produce una fraccion: produce la obligacion de una segunda muestra.",
+      "estado_por_estrato": {
+        "A_econometria_academica": "dos muestras (J1, J2): N=80, vistas 42, no vista 47.5% -> BLOQUEA",
+        "B_regulatorio_actuarial": "una sola muestra (J3): INESTIMABLE. El 77.6% que da Chapman lee como cobertura lo que es ausencia de segunda muestra."
+      },
+      "tarea_acotada": "Para levantar el bloqueo no hace falta 'buscar mas' en abstracto: hace falta exactamente una segunda muestra independiente del estrato regulatorio/actuarial, y cerrar el estrato A."
+    }
+  },
+  "predicciones": [
+    {
+      "id": "P-1",
+      "titulo": "La firma de revision",
+      "fecha_resolucion": "2031-12-31",
+      "enunciado": "Recomputando cada ano el ES99 a H=10 anios sobre una ventana movil de 10 anios de la serie congelada, la desviacion tipica de la revision anual del numero que usa mu estimada supera en mas de 1.3x la del numero que fija mu=0.",
+      "PASA_si": "razon > 1.3 sobre las 5 reestimaciones 2027..2031",
+      "FALLA_si": "razon <= 1.3",
+      "potencia": "0.953 (empirica, sobre las 86 ventanas de 5 revisiones del registro 1936-2026)",
+      "nota": "El ciclo 8 predijo 48x. Medido sobre datos reales: 3.04x en 90 reestimaciones. La razon 48x se RETRACTA aqui: suponia sigma constante, y sigma tambien se revisa (6.42% del nivel)."
+    },
+    {
+      "id": "P-2",
+      "titulo": "La ley exacta del exceso de revision",
+      "fecha_resolucion": "2031-12-31",
+      "enunciado": "Var(dES | mu estimada) - Var(dES | mu=0) = H^2 * 2*sigma^2/T^2. Es una igualdad, no una desigualdad.",
+      "PASA_si": "razon medido/teorico dentro de [0.70, 1.40] para T=10, 20 y 30 anios",
+      "FALLA_si": "cualquiera de las tres fuera de [0.70, 1.40]",
+      "potencia": "alta — al sellar da 1.054, 1.165, 1.110",
+      "nota": "Esta es la unica prediccion del protocolo que ya esta verificada sobre 90+80+70 reestimaciones reales. Su papel es de control: si FALLA, el aparato esta roto y todo lo demas es ruido."
+    },
+    {
+      "id": "P-3",
+      "titulo": "2036 no resuelve nada — registro sin veredicto",
+      "fecha_resolucion": "2036-12-31",
+      "enunciado": "Con T=10 anios de datos nuevos, el contraste sobre la correccion de deriva tiene tamano 21.4% y potencia 40.6%. El protocolo DECLARA DE ANTEMANO que la lectura de 2036 no constituye veredicto.",
+      "PASA_si": "n/a — no se emite veredicto",
+      "FALLA_si": "n/a — emitir un veredicto en 2036 es incumplir el protocolo",
+      "potencia": "0.406 — insuficiente por diseno",
+      "nota": "Compromiso anti-p-hacking: se registra el numero y se sigue. La tentacion de leer 2036 como confirmacion es exactamente lo que este apartado prohibe."
+    },
+    {
+      "id": "P-4",
+      "titulo": "EL TEOREMA — H=10 no sale de la banda",
+      "fecha_resolucion": "2046-12-31",
+      "enunciado": "Recomputando cada ano T_est (ultima ruptura de volatilidad al 1% con HAC), S sobre esa ventana, y la banda H-/+ = [k_alpha/(S -/+ z/sqrt(T_est))]^2, el horizonte H=10 anios permanece DENTRO de la banda en todas las lecturas anuales de 2027 a 2046.",
+      "PASA_si": "H- < 10 < H+ en las 20 lecturas",
+      "FALLA_si": "H=10 sale de la banda en cualquier lectura",
+      "potencia": "El mecanismo de fallo esta identificado: exige S > 0.8428 + z/sqrt(T_est) sostenido, es decir un Sharpe realizado superior a ~1.0 sobre la ventana estacionaria completa.",
+      "nota": "Esta es la prediccion central. Bajo el teorema, sacar H=10 de la banda exige 11,707 anios de regimen estacionario."
+    },
+    {
+      "id": "P-5",
+      "titulo": "La banda no converge a cero",
+      "fecha_resolucion": "2060-12-31",
+      "enunciado": "La anchura H+ - H- no converge a cero: converge a la anchura de suelo impuesta por T_est, que no crece indefinidamente porque el proceso de rupturas lo reinicia.",
+      "PASA_si": "H+ - H- > 5.0 anios en la lectura de 2060",
+      "FALLA_si": "H+ - H- <= 5.0 anios",
+      "potencia": "Bajo hipotesis de ninguna ruptura nueva se predice 10.03 anios; cualquier ruptura la ensancha.",
+      "nota": "Corolario: la banda colapsa a un PUNTO H0=(k_alpha/S)^2, no a un conjunto vacio. En H0 el requisito de capital es cero, y un cero no tiene signo."
+    },
+    {
+      "id": "P-6",
+      "titulo": "El veredicto largo",
+      "fecha_resolucion": "2082-12-31",
+      "enunciado": "En 2082, con 56 anos mas de datos, el signo del ES99 a 10 anios sigue sin estar determinado por ninguna ventana defendible como estacionaria.",
+      "PASA_si": "H- < 10 < H+ en la lectura de 2082",
+      "FALLA_si": "H=10 fuera de la banda en 2082",
+      "potencia": "Bajo el teorema, casi segura. Es falsable por un unico camino del mundo: un Sharpe realizado sostenido > 1.008 sobre 141 anios.",
+      "nota": "2082 = 2026 + 55.8, la fecha que el ciclo 8 identifico como el horizonte de resolucion limpia. El teorema predice que ni siquiera entonces se resuelve."
+    }
+  ],
+  "disparadores": {
+    "VOID_ruptura_en_la_media": "Si el sup-Wald HAC sobre la MEDIA de los rendimientos mensuales supera 12.35 en cualquier lectura anual, la premisa de mu constante cae y TODAS las predicciones quedan VOID. Al sellar: sup-Wald = 1.75, muy por debajo.",
+    "VOID_serie_discontinuada": "Si la serie congelada deja de publicarse o cambia de definicion, VOID. No se admite sustituirla por otra: eso seria elegir la serie despues de ver el resultado.",
+    "MOOT_precedencia": "Si la puerta bibliografica devuelve precedente anterior a 2026-09-22 para una prediccion, esa prediccion es MOOT y no se resuelve empiricamente.",
+    "el_falsador_propio": "El teorema es MAS DEBIL si NO hay rupturas: sin ruptura, T_est=100 anios, la banda es (10.42, 37.77) y H=10 queda FUERA. La ausencia de ruptura es el falsador natural del teorema, y es precisamente el caso que el test rechaza al 1% con HAC bajo los tres proxies."
+  },
+  "lo_que_este_protocolo_NO_afirma": [
+    "No afirma que mu sea inestimable. Sobre la serie completa t = S*sqrt(T) = 6.3 y mu es significativa.",
+    "No afirma que la regla raiz-de-t sea incorrecta. Eso esta publicado (Danielsson & Zigrand 2006).",
+    "No afirma que la correccion por media sea novedosa. No lo es.",
+    "Afirma una sola cosa: que el SIGNO del numero corregido, en una banda de horizontes que contiene los de IFRS 9 y los de ALM de pensiones, no esta determinado por ninguna ventana que se pueda defender como estacionaria — y que esa banda no se cierra con el tiempo.",
+    "No afirma que el diagnostico de revision sea nuestro: Richards, Currie & Ritchie (2012) lo publican en longevidad.",
+    "No afirma que el cruce por cero del rendimiento a largo plazo sea nuestro: Muller-Watson (2016) y Fama-French (2018) lo publican.",
+    "No aplica al SCR de Solvencia II, donde el Art. 101(3) hace que mu se cancele identicamente."
+  ],
+  "sello_sha256": "e4f4c3d98ff6032bfff002056173a8bc613c6f6cfce8a09ba1886c5d142a9d91",
+  "sello_cubre": "El SHA-256 del JSON canonico de este documento SIN el campo sello_sha256 ni sello_cubre, indent=2, ensure_ascii=False, sin ordenar claves."
+}
