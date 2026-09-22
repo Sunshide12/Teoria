@@ -65,27 +65,34 @@ Lee `memoria/GRAFO.md` y `memoria/MEM.ndx`. Nada más.
 
 ## El resultado
 
-**T6 — la banda ciega** (`teorema/T6-la-banda-ciega.md`). El signo del ES corregido por
-media está estadísticamente indeterminado exactamente dentro de
+**T6 — la banda ciega** (`teorema/T6-la-banda-ciega.md`), **recortado por el ciclo 10
+antes de publicarse.** Lo que aguantan los datos:
+
+> Para el mercado total estadounidense, la Sharpe realizada sobre cualquier ventana de 10
+> a 95 años es indistinguible de `k_α/√10 = 0,8428` (**Ŝ = 0,8247, t = 0,167, p = 0,87**).
+> El signo del `ES₉₉` a diez años corregido por media no está determinado por la muestra, y
+> el intervalo de horizontes indeterminados es **(6,6 , 19,0) años**, que cubre la ECL y el
+> ALM de pensiones.
 
 ```
-H⁻ < H < H⁺        H^∓ = [ k_α / (Ŝ ± z/√T) ]²
+H^∓ = [ k_α / (Ŝ ± z/√T) ]²
 ```
 
-Sobre el mercado estadounidense (Fama–French, 1926–2026) hacen falta **96 años** de
-ventana para determinar el signo a diez años, y sólo hay **85** sin cruzar la ruptura de
-volatilidad de 1941. **El conjunto de ventanas admisibles está vacío**, y la banda
-—(6,60 , 18,96) años— contiene la ECL vitalicia y el ALM de pensiones.
+**Y lo primero que hay que saber es que esa banda es una identidad**: bajo H ↦ k_α/√H, es
+el intervalo de confianza de Ŝ con el eje reetiquetado (coincidencia a `0,00e+00`). Es
+Merton 1980 leído en el eje del horizonte. No se reproduce en **12 de 16 mercados**, y cuál
+de los cinco Ŝ defendibles se use cambia qué horizontes entran — el regulador usa 0,489 y
+con ese valor la banda es (14,4 , 92,8).
 
-Sacar H=10 de esa banda exige del orden de **10⁴ años** de régimen estacionario, porque
-10 cae a un 4% del punto `H₀ = (k_α/Ŝ)²` donde el requisito vale cero — y un cero no
-tiene signo. (La cifra exacta —11.707 ó 11.717— depende del quinto decimal de Ŝ y **no
-debe citarse**: lo robusto es el orden de magnitud.)
+Lo que queda, y es el resultado más honesto del proyecto: `SE(Ŝ) = 0,126`, luego
+`H⁻ ∈ [4,31 , 11,35]` y `H⁺ ∈ [9,64 , 53,02]`, de modo que para **H = 5, 7, 10, 15, 20 y
+30 la pertenencia a la banda es indecidible**. No se puede determinar qué horizontes están
+en la región donde nada se determina.
 
 ## Lo que no es
 
-Este repositorio contiene **diez resultados propios retractados**, seis de ellos escritos
-con confianza ≥ 0,90. Están todos, con el mismo detalle con que se escribieron, en
+Este repositorio contiene **once resultados propios retractados**, seis de ellos escritos
+con confianza ≥ 0,90 — el último, por el agente al que se le encargó matarlo. Están todos, con el mismo detalle con que se escribieron, en
 `ESTADO.md` y `verificacion/M01-funciono-el-bucle.md`. El registro de lo que no funcionó
 es la parte del método que no se puede reconstruir después.
 

@@ -40,9 +40,15 @@ independientes).
 **T_det = 96 años.** Y el punto estimado **cambia de signo** con la ventana: negativo a
 10 y 15 años, positivo en las demás.
 
-Mírese la columna σ̂: salta de 0,157 a 0,182 exactamente entre T=94 y T=96. Ese salto es
-el régimen de volatilidad anterior a 1941. **Las únicas ventanas que determinan el signo
-son las que cruzan la ruptura.** La determinación se compra con no estacionariedad.
+Mírese la columna σ̂. **Corrección del ciclo 10 a esta frase, que estaba mal escrita:** no
+«salta entre T=94 y T=96». Medido: T=90 → 0,1572 · T=93 → 0,1592 · T=94 → 0,1711 ·
+T=95 → 0,1802 · T=96 → 0,1824. El ascenso va **de T=93 a T=96**, al entrar el régimen
+anterior a 1941.
+
+> **Y el ciclo 10 retractó lo que seguía.** «Las únicas ventanas que determinan el signo
+> son las que cruzan la ruptura» presuponía que T_det=96 es una medición. No lo es: sale
+> de un barrido con nivel efectivo del 15–25%, y desaparece al borrar el año 1931. Ver
+> `teorema/T6-la-banda-ciega.md` §«Lo que el ciclo 10 destruyó».
 
 ## 3. El techo de estacionariedad
 

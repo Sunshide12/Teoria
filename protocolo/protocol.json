@@ -1,6 +1,6 @@
 {
   "nombre": "Protocolo de falsacion T6 — la banda ciega",
-  "version": "1.0",
+  "version": "2.0",
   "fecha_preregistro": "2026-09-22",
   "origen": "ciclo 9 del bucle multiagentico; grafo en memoria/GRAFO.md",
   "serie_congelada": {
@@ -133,6 +133,34 @@
         "cubre": "'With respect to existing business, it shall cover only unexpected losses.'",
         "bloquea": null,
         "efecto": "RESTRICCION DE ALCANCE, no precedente: bajo esa definicion mu se cancela identicamente y no hay problema de signo. El teorema aplica al ES plug-in usado como NIVEL (IFRS 9, C-3 RBC, ALM), no al SCR."
+      },
+      {
+        "cita": "Jorion 1996, Risk^2: Measuring the Risk in Value at Risk, FAJ 52(6):47-56",
+        "hallado_por": "K1, leido visualmente sobre el escaneo original",
+        "cubre": "Nada. Ec.(1) define VAR = E(W) - W* = W0(mu - R*), VaR relativo a la media; ec.(6) 'The key result is that VAR is associated with the standard deviation only'; se(alpha*s) = alpha*se(s) con se(s|Phi) = sigma*sqrt(1/2T). Su Figura 4 publica error tipico EXACTAMENTE 0 en alpha=0, donde T6 publica sigma*sqrt(H/T) > 0.",
+        "bloquea": null,
+        "efecto": "El precedente mas plausible que quedaba abierto queda DESCARTADO con texto. Y en direccion contraria: la literatura fundacional del VaR definio el problema de modo que esta banda no pudiera aparecer."
+      },
+      {
+        "cita": "AAA/LCAS, Recommended Approach for Setting Regulatory RBC Requirements for Variable Annuities, marzo 2005, Apendice 2",
+        "hallado_por": "K1",
+        "cubre": "'the historic data do not permit credible inferences about long-term equity returns in the tails... As such, factors for the 20-year horizon at the 2.5% and 97.5% points are deliberately excluded from the calibration'; y 'some subjective restrictions were imposed to ensure an unconditional expected total annualized return of 8.75%... The historic data suggest a higher expected return (i.e., over 10% per annum)'.",
+        "bloquea": null,
+        "efecto": "RIVAL DE MARCO. Un regulador que se niega a fijar las celdas que el dato no soporta, y que impone mu por decreto declarandolo. La afirmacion 'ningun documento supervisor lo reconoce' NO sobrevive. Ademas su calibracion implica S ~ 0,489, con la que la banda pasa a (14,42 , 92,84) y excluye la ECL hipotecaria y la vitalicia."
+      },
+      {
+        "cita": "Mina & Xiao 2001, Return to RiskMetrics: The Evolution of a Standard, seccion 2",
+        "hallado_por": "K1",
+        "cubre": "'since volatility is much larger than the expected return at short horizons, the forecasts are dominated by the volatility estimate sigma... we will make the explicit assumption that the expected return is zero' -- la rama inferior del mecanismo, publicada.",
+        "bloquea": null,
+        "efecto": "Acotado EXPLICITAMENTE a horizontes 'shorter than three months'. Publica la rama de abajo y se detiene justo antes de la banda."
+      },
+      {
+        "cita": "SOA / Modugno 2012, Estimating Equity Risk Premiums, Pension Section Research Committee",
+        "hallado_por": "K1",
+        "cubre": "'even with 50 years of U.S. data, we cannot be confident that the equity premium is greater than 0'; y la tension precision/estacionariedad: 'capital markets data series are not stationary'.",
+        "bloquea": null,
+        "efecto": "La PREMISA esta publicada en la literatura actuarial desde 2012. No la banda de horizontes."
       }
     ],
     "captura_recaptura_corregida": {
@@ -141,7 +169,7 @@
       "regla_nueva": "La fraccion no vista se estima POR ESTRATO. Un estrato con una sola muestra no produce una fraccion: produce la obligacion de una segunda muestra.",
       "estado_por_estrato": {
         "A_econometria_academica": "dos muestras (J1, J2): N=80, vistas 42, no vista 47.5% -> BLOQUEA",
-        "B_regulatorio_actuarial": "una sola muestra (J3): INESTIMABLE. El 77.6% que da Chapman lee como cobertura lo que es ausencia de segunda muestra."
+        "B_regulatorio_actuarial": "SEGUNDA MUESTRA TOMADA EN EL C10 (K1): n1=17, n2=20, m=4 -> Chapman 74,6, 55,8% sin ver. PERO el estimador vuelve a ser invalido, ahora POR DISENO: las consultas se preregistraron disjuntas, que es exactamente la violacion de homogeneidad que invalido el del ciclo 9. Lo interpretable es la recaptura cruda 4/17 = 0,235, frente a 0,304 (econometrico x inversion) y 0,059/0,000 (cruzados): la estratificacion era correcta. EL ESTRATO SIGUE ABIERTO, y para cerrarlo hace falta una tercera muestra con las MISMAS consultas del primer buscador, o sorteadas del mismo universo, no complementarias."
       },
       "tarea_acotada": "Para levantar el bloqueo no hace falta 'buscar mas' en abstracto: hace falta exactamente una segunda muestra independiente del estrato regulatorio/actuarial, y cerrar el estrato A."
     }
@@ -185,7 +213,7 @@
       "PASA_si": "H- < 10 < H+ en las 20 lecturas",
       "FALLA_si": "H=10 sale de la banda en cualquier lectura",
       "potencia": "El mecanismo de fallo esta identificado: exige S > 0.8428 + z/sqrt(T_est) sostenido, es decir un Sharpe realizado superior a ~1.0 sobre la ventana estacionaria completa.",
-      "nota": "Esta es la prediccion central. Bajo el teorema, sacar H=10 de la banda exige 11,707 anios de regimen estacionario."
+      "nota": "RECORTADA POR EL CICLO 10. Sigue siendo la prediccion central, pero su interes es mucho menor de lo que el ciclo 9 creia: K2 demostro que con SE(S) por bootstrap por bloques H=10 esta dentro de la banda para todo T_est de 10 a 100 anios, asi que esta prediccion es casi segura bajo cualquier correccion defendible del error tipico. Eso la hace debil, no fuerte. Su unico mecanismo de fallo real sigue siendo un Sharpe realizado sostenido por encima de ~1,0."
     },
     {
       "id": "P-5",
@@ -205,14 +233,14 @@
       "PASA_si": "H- < 10 < H+ en la lectura de 2082",
       "FALLA_si": "H=10 fuera de la banda en 2082",
       "potencia": "Bajo el teorema, casi segura. Es falsable por un unico camino del mundo: un Sharpe realizado sostenido > 1.008 sobre 141 anios.",
-      "nota": "2082 = 2026 + 55.8, la fecha que el ciclo 8 identifico como el horizonte de resolucion limpia. El teorema predice que ni siquiera entonces se resuelve."
+      "nota": "RECORTADA POR EL CICLO 10, igual que P-4, y ademas restringida geograficamente: el enunciado vale para el mercado total estadounidense y para una cartera mundial equiponderada, no para mercados individuales (4 de 16 en Jorda-Schularick-Taylor)."
     }
   ],
   "disparadores": {
-    "VOID_ruptura_en_la_media": "Si el sup-Wald HAC sobre la MEDIA de los rendimientos mensuales supera 12.35 en cualquier lectura anual, la premisa de mu constante cae y TODAS las predicciones quedan VOID. Al sellar: sup-Wald = 1.75, muy por debajo.",
+    "VOID_ruptura_en_la_media": "Si el sup-Wald HAC sobre la MEDIA de los rendimientos mensuales supera 12.35 en cualquier lectura anual, la premisa de mu constante cae y TODAS las predicciones quedan VOID. Al sellar: sup-Wald = 1.75, muy por debajo. NOTA DEL CICLO 10: este disparador se mantiene porque la premisa de mu constante sigue siendo necesaria, pero la ruptura en la VOLATILIDAD dejo de ser portante: el resultado no depende de ella.",
     "VOID_serie_discontinuada": "Si la serie congelada deja de publicarse o cambia de definicion, VOID. No se admite sustituirla por otra: eso seria elegir la serie despues de ver el resultado.",
     "MOOT_precedencia": "Si la puerta bibliografica devuelve precedente anterior a 2026-09-22 para una prediccion, esa prediccion es MOOT y no se resuelve empiricamente.",
-    "el_falsador_propio": "El teorema es MAS DEBIL si NO hay rupturas: sin ruptura, T_est=100 anios, la banda es (10.42, 37.77) y H=10 queda FUERA. La ausencia de ruptura es el falsador natural del teorema, y es precisamente el caso que el test rechaza al 1% con HAC bajo los tres proxies."
+    "el_falsador_propio": "RECORTADO POR EL CICLO 10. Sigue siendo real y alcanzable (HAC L>=50 lo consigue), pero tiene un margen del 4,0%: basta multiplicar SE(S) por 1,14 para borrarlo, y el bootstrap por bloques da x1,28-1,32. En la practica el protocolo es infalsificable por esta ruta, y eso es un defecto declarado, no una virtud."
   },
   "lo_que_este_protocolo_NO_afirma": [
     "No afirma que mu sea inestimable. Sobre la serie completa t = S*sqrt(T) = 6.3 y mu es significativa.",
@@ -221,8 +249,37 @@
     "Afirma una sola cosa: que el SIGNO del numero corregido, en una banda de horizontes que contiene los de IFRS 9 y los de ALM de pensiones, no esta determinado por ninguna ventana que se pueda defender como estacionaria — y que esa banda no se cierra con el tiempo.",
     "No afirma que el diagnostico de revision sea nuestro: Richards, Currie & Ritchie (2012) lo publican en longevidad.",
     "No afirma que el cruce por cero del rendimiento a largo plazo sea nuestro: Muller-Watson (2016) y Fama-French (2018) lo publican.",
-    "No aplica al SCR de Solvencia II, donde el Art. 101(3) hace que mu se cancele identicamente."
+    "No aplica al SCR de Solvencia II, donde el Art. 101(3) hace que mu se cancele identicamente.",
+    "No afirma que la banda en H sea un hallazgo: es el IC de S con el eje reetiquetado, una identidad algebraica.",
+    "No afirma nada sobre mercados distintos del total estadounidense y una cartera mundial diversificada.",
+    "No afirma que el conjunto de ventanas admisibles este vacio: esa formulacion queda retractada."
   ],
-  "sello_sha256": "e4f4c3d98ff6032bfff002056173a8bc613c6f6cfce8a09ba1886c5d142a9d91",
+  "recorte_del_ciclo_10": {
+    "fecha": "2026-09-22, el mismo dia del preregistro, por el agente adversarial K2 y el buscador K1",
+    "por_que": "El ciclo 10 encargo explicitamente destruir T6 con seis ataques numericos. No encontro ningun error aritmetico, pero destruyo tres de las cuatro cifras del enunciado y demostro que su parte (i) es una identidad algebraica.",
+    "lo_que_se_borra": [
+      "T_det = 96 anios: sale de barrer 96 contrastes correlacionados con nivel efectivo 15,2% (iid) / 25,4% (bootstrap), no 5%. Con el critico corregido no existe en la muestra. Borrar el anio 1931 lo hace desaparecer.",
+      "La 'brecha de 11 anios': no era una segunda medicion. T_det=96 ES 'H=10 sale de la banda a T=96'.",
+      "Los 11.707 anios: IC95 bootstrap (49 , 181.757), con 44,7% de la masa en infinito o con el signo cambiado.",
+      "La conjuncion con T_est como contenido original: con SE(S) por bootstrap por bloques (x1,28-1,32, que la curtosis mensual de 10,6 exige), H=10 esta dentro de la banda para TODO T_est de 10 a 100 anios. El test de ruptura, la fecha de 1941 y T_est eran decorativos.",
+      "La fecha exacta de la ruptura: es 1939-10 / 1941-08 / 1946-10 / 1951-09 segun el recorte, y desaparece con HAC L>=50, con Sanso kappa2 a L>=60 y al filtrar GARCH(1,1). Regimen y clustering no estan identificados.",
+      "La universalidad implicita: en Jorda-Schularick-Taylor 1941-2020 solo 4 de 16 paises tienen H=10 dentro. H0 vale 10,4 en EE.UU. y 12,0-68,7 en el resto."
+    ],
+    "lo_que_se_corrige": [
+      "H0 = 10,4 con IC95 (6,26 , 20,42). Un punto de colapso con IC de factor 3,3 no es un punto.",
+      "La banda en H ES el IC de S con el eje reetiquetado: (k/sqrt(H+), k/sqrt(H-)) = (S - z/sqrt(T), S + z/sqrt(T)), coincidencia a 0,00e+00. Identidad, no hallazgo.",
+      "Todo el contenido empirico es UN contraste: H0: S = k/sqrt(10) = 0,8428; medido S = 0,8247; t = 0,167; p = 0,867.",
+      "La banda depende enteramente de S, y hay cinco definiciones defendibles: simple-total 0,8247 / log-total 0,7441 / simple-exceso 0,5792 / log-exceso 0,5003 / AAA-NAIC prescrito 0,4892. SOLO H=15 cae dentro bajo las cinco.",
+      "sigma no 'salta de 0,157 a 0,182 entre T=94 y T=96': el ascenso va de T=93 a T=96."
+    ],
+    "lo_que_sobrevivio": [
+      "H=10 dentro de la banda para TODA ventana de 10 a 95 anios: ninguna eleccion de ventana lo saca.",
+      "La normalidad no lo mueve: k_alpha empirico del agregado 2,535-3,041 frente a 2,6652 (0,95x-1,14x, ruido por la regla de 1,3x) cuando haria falta -27%. Lo-MacKinlay VR(10a)=0,946+-0,399.",
+      "El estimador predictivo lo ENSANCHA un 40%, de (6,60 , 18,96) a (7,16 , 24,40).",
+      "P-2, la igualdad del exceso de revision, verificada tambien sobre el tramo estacionario: 1,100 / 1,029 / 1,076."
+    ],
+    "el_defecto_epistemico": "Casi toda correccion de robustez ANADE incertidumbre y por tanto ensancha la banda y REFUERZA T6. El teorema solo puede morir por especificaciones que hagan la determinacion mas facil. Su falsador declarado tiene margen del 4,0% y se borra multiplicando SE(S) por 1,14; el bootstrap da x1,28-1,32. T6 es en la practica infalsificable por la unica ruta que el mismo ofrecia. Queda escrito para que ninguna replica que 'lo confirma' se cuente como informacion."
+  },
+  "sello_sha256": "6b57ff094d66b0c94c709fcd81709f0e5d10dbb56e07b7f62987da4c4c7ba02f",
   "sello_cubre": "El SHA-256 del JSON canonico de este documento SIN el campo sello_sha256 ni sello_cubre, indent=2, ensure_ascii=False, sin ordenar claves."
 }

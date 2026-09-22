@@ -1,199 +1,179 @@
 # T6 — La banda ciega
 
-> Preregistrado el 22-09-2026. Sellado en `protocolo/protocol.json`
-> (`e4f4c3d9…`). Resolutor ejecutable en `protocolo/resolve.py`.
-> Verificación numérica en `verificacion/N133-la-banda-ciega.md`.
+> **Recortado por el ciclo 10, antes de publicarse.** El agente adversarial destruyó tres
+> de las cuatro cifras del enunciado original y demostró que su parte (i) es una
+> identidad. El buscador regulatorio demostró que el titular depende de un parámetro que
+> el regulador fija en otro valor. Lo que queda está abajo, y es bastante menos.
+>
+> Preregistrado el 22-09-2026 · `protocolo/protocol.json` · verificación en
+> `verificacion/N133-la-banda-ciega.md` · algoritmo en `motor/banda.py`.
 
 ---
 
-## Enunciado
+## El enunciado, en la versión que aguantan los datos
 
-Sea la medida de riesgo a horizonte `H` bajo escalamiento raíz-de-t con corrección de
-media, estimada por sustitución directa sobre una ventana de `T` años:
-
-```
-ÊS(α, H) = −μ̂H + k_α · σ̂ · √H          k_α = φ(z_α)/(1−α)
-```
-
-**(i) Existe una banda de horizontes en la que el signo no está determinado por los
-datos.** El contraste de `ÊS(α,H) = 0` no se rechaza al nivel `z` si y solo si
+Para el mercado total estadounidense, la Sharpe realizada sobre **cualquier** ventana de
+10 a 95 años que termine hoy es estadísticamente indistinguible de `k_α/√10 = 0,8428`:
 
 ```
-H⁻ < H < H⁺        con        H^∓ = [ k_α / (Ŝ ± z/√T) ]²,     Ŝ = μ̂/σ̂
+Ŝ (1941–2026) = 0,8247        t = 0,167        p = 0,87
 ```
 
-Fuera de la banda el signo se determina trivialmente: positivo por debajo de `H⁻`
-—domina la volatilidad—, negativo por encima de `H⁺` —domina la deriva—.
-
-**(ii) La banda no se cierra: colapsa a un punto.** Cuando `T → ∞`,
+Por tanto el signo del `ES₉₉` a diez años corregido por media **no está determinado por la
+muestra**. El intervalo de horizontes indeterminados es
 
 ```
-H⁻, H⁺  →  H₀ = (k_α / Ŝ)²
+H^∓ = [ k_α / (Ŝ ± z/√T) ]²      →      (6,6 , 19,0) años
 ```
 
-y `H₀` es precisamente el horizonte donde `ÊS(α,H₀) = 0`. El horizonte al que el número
-se anula es el horizonte al que ninguna cantidad de datos puede decirte su signo, porque
-**un cero no tiene signo**. Para todo `H ≠ H₀` el `T` necesario es finito pero crece sin
-cota conforme `H → H₀`, como `[z/(k_α/√H − Ŝ)]²`.
+que contiene los horizontes de la ECL y del ALM de pensiones. El resultado es robusto a la
+elección de ventana, al test de ruptura, al estimador predictivo y al `k_α` empírico.
 
-**(iii) `T` no es libre: está acotado por la estacionariedad.** Sea `T_est` la ventana más
-larga que termina en el presente sin contener una ruptura estructural en la varianza.
-Entonces el conjunto de horizontes cuyo signo es determinable **con una ventana
-defendible** es el complementario de
-
-```
-( [k_α/(Ŝ + z/√T_est)]² ,  [k_α/(Ŝ − z/√T_est)]² )
-```
-
-y **ese conjunto no crece con el paso del tiempo**, porque `T_est` no es el calendario:
-es la edad del régimen actual, y el proceso de rupturas la reinicia.
+**Y no se reproduce en 12 de los 16 mercados desarrollados con historia comparable.**
 
 ---
 
-## Lo que lo convierte en teorema y no en despeje
+## Lo primero, porque cambia cómo se lee todo lo demás
 
-(i) es álgebra de dos líneas. (ii) es su límite. Lo que hace que esto sea una afirmación
-sobre el mundo y no sobre una fórmula es **(iii) conjugado con una medición**:
+**La banda en H es el intervalo de confianza de Ŝ con el eje reetiquetado.** No se parece:
+lo es. Bajo la biyección `H ↦ k_α/√H`,
 
-Sobre el mercado estadounidense —Fama–French, 1926-07 a 2026-07, 1.201 meses—
+```
+( k_α/√H⁺ , k_α/√H⁻ ) = ( Ŝ − z/√T , Ŝ + z/√T )
+```
 
-| | |
+Comprobado numéricamente: `(0,612112 , 1,037288)` por los dos caminos, coincidencia a
+`0,00e+00`. Es una identidad algebraica, no un hallazgo.
+
+De ahí se sigue que **todo el contenido empírico de T6 cabe en un contraste**: `H₀: S =
+k_α/√10`. No hacen falta barridos, ni `T_det`, ni brechas. Lo que el proyecto llamó «un
+funcional con dos polos» durante tres ciclos es Merton (1980) leído en el eje del
+horizonte.
+
+**Lo que eso deja en pie, y es lo único que queda de original:** el IC de μ dice *cuánta*
+ignorancia hay; la banda dice *a qué horizontes muerde*. Es valor expositivo, y el eje del
+horizonte es donde vive la regulación. No es un teorema.
+
+---
+
+## Lo que el ciclo 10 destruyó
+
+| cifra publicada | qué le pasó |
 |---|---|
-| ventana necesaria para determinar el signo a H=10 años | **T_det = 96 años** |
-| ventana disponible sin cruzar una ruptura de volatilidad | **T_est = 85,0 años** |
-| | **brecha: 11 años** |
-
-**El conjunto de ventanas admisibles está vacío.** Y no por poco, ni por casualidad: la
-ruptura está en agosto de 1941 (sup-Wald HAC **16,8 / 40,7 / 38,8** con los tres proxies
-de volatilidad, al 1%), y σ̂ salta de 0,157 a 0,182 exactamente entre `T=94` y `T=96`.
-
-> **Las únicas ventanas que determinan el signo son las que cruzan la ruptura. La
-> determinación se compra con no estacionariedad.**
-
-La banda con `T_est = 85` es **(6,60 , 18,96) años**, y contiene la ECL hipotecaria (7),
-la ECL vitalicia (10) y el ALM de pensiones (15). No contiene los 10 días del FRTB ni el
-año de Solvencia II. **No cae donde no molesta.**
+| `T_det = 96 años` | **Borrada.** Sale de un barrido de 96 contrastes correlacionados cuyo nivel efectivo es **15,2%** (iid) / **25,4%** (bootstrap), no 5%. El p familiar del z=2,098 observado es 0,116 / 0,214. Con el crítico corregido **T_det no existe en la muestra**. Y **borrar el año 1931 la hace desaparecer**. |
+| «brecha de 11 años» | **Borrada.** No era una segunda medición: `T_det=96` **es** «H=10 sale de la banda a T=96». Era la primera repetida. |
+| `11.707 años` | **Borrada.** IC95 por bootstrap estacionario: **(49 , 181.757) años**, con **44,7% de la masa en infinito o con el signo cambiado**. Si hace falta una cifra: «entre medio siglo e infinito, sin poder distinguir». |
+| `H₀ = 10,444` | **Con IC:** `H₀ = 10,4 (IC95 6,3 – 20,4)`. Un punto de colapso con un IC de factor 3,3 no es un punto. |
+| la conjunción con `T_est` | **Retirada como contenido original.** Con `SE(Ŝ)` por bootstrap por bloques (×1,13 a ×1,31, que la curtosis mensual de 10,6 exige), **H=10 está dentro de la banda para todo `T_est` de 10 a 100 años**. El test de ruptura, 1941 y `T_est` no eran portantes. |
+| «ruptura en 1941-08» | **Sin fecha exacta.** Es 1939-10 / 1941-08 / 1946-10 / 1951-09 según el recorte (10/15/20/25%); desaparece con HAC `L≥50`, con Sansó κ₂ a `L≥60` y al filtrar un GARCH(1,1). Lo que aguanta: `σ(1926-41)/σ(1941-2026) = 2,14×`, p=0,0027 por bootstrap por bloques. **Régimen y clustering no están identificados en esta muestra.** |
+| «σ̂ salta de 0,157 a 0,182 entre T=94 y T=96» | **Falso, y era mío.** Medido: T=90 → 0,1572 · T=93 → 0,1592 · T=94 → 0,1711 · T=95 → 0,1802 · T=96 → 0,1824. El ascenso va de T=93 a T=96. |
+| «(ii) colapsa a un punto, no a cero» | **Vacuo.** Es propiedad de *todo* intervalo de confianza consistente: colapsa al estimador puntual. Y «un cero no tiene signo» es una tautología. |
+| universalidad implícita | **Restringida.** En Jordà–Schularick–Taylor 1941–2020, **sólo 4 de 16 países** tienen H=10 dentro de la banda. `H₀` vale 10,4 en EE.UU. frente a 12,0–68,7 en el resto (Japón 27,1 · Europa 25,6 · RU 23,4 · Francia 49,1). |
 
 ---
 
-## La forma cerrada, verificada
+## Y el golpe que vino del regulador
 
-`H^∓` reproduce el `T_det` obtenido por búsqueda numérica bruta en **18 de 18 casos**
-(`H ∈ {1,2,3,5,7,10,15,20,30}` × `α ∈ {0,95 · 0,99}`). No es un ajuste: es la misma
-cantidad calculada por dos caminos.
+La banda `(6,60 , 18,96)` descansa **entera** sobre `Ŝ = 0,8247`, que es la media y la
+desviación de rendimientos **simples totales**. Hay al menos cinco definiciones
+defendibles, y dan bandas distintas:
+
+| definición de μ | Ŝ | banda (T=85) | H=7 | H=10 | H=15 |
+|---|---|---|---|---|---|
+| simple, total *(la publicada)* | 0,8247 | (6,60 , 18,96) | dentro | dentro | dentro |
+| **log, total** | 0,7441 | (7,76 , 25,14) | **fuera** | dentro | dentro |
+| **simple, exceso sobre rf** | 0,5792 | (11,33 , 52,86) | fuera | **fuera** | dentro |
+| **log, exceso sobre rf** | 0,5003 | (13,98 , 85,80) | fuera | fuera | dentro |
+| **AAA/NAIC, prescrito por norma** | 0,4892 | (14,42 , 92,84) | fuera | fuera | dentro |
+
+La última fila es la que importa. El **C-3 Phase II de la AAA/NAIC (2005)** es la única
+calibración normativa publicada de la pareja deriva/volatilidad para renta variable
+estadounidense. Sus factores de riqueza cruzan 1,0 —requisito exactamente cero— en 6,47 /
+11,31 / 16,76 años según el cuantil, lo que implica `Ŝ = 0,478–0,504`, **estable a través
+de cuantiles y consistente con su 8,75% anualizado declarado bajo lognormal**
+(`ln(1,0875) − σ²/2 = 0,0725`, `/0,1511 = 0,480`).
+
+**Con el Ŝ del regulador, la banda no contiene ni la ECL hipotecaria ni la vitalicia.** Y
+bastarían `T = 30,7` años para determinar el signo a H=10, no 96.
+
+> **Sólo H=15 —el ALM de pensiones— cae dentro de la banda bajo las cinco definiciones.**
+> H=7 y H=10 dependen de cuál elijas, y **no hay dato que elija**.
 
 ---
 
-## La objeción que podía matarlo
+## El resultado de segundo orden, que es lo más honesto que salió del ciclo
 
-> *«Usa el estimador predictivo y el signo queda determinado.»* — Barberis (2000),
-> Pitera & Schmidt (2018). Integrar `μ` fuera produce siempre un capital mayor.
+`SE(Ŝ) = √((1+Ŝ²/2)/T) = 0,126` (Lo 2002). Luego `IC95(Ŝ) = [0,579 , 1,071]`, y los bordes
+de la banda heredan esa incertidumbre:
 
-Se comprobó, y **no lo mata**. El estimador predictivo sustituye `√H` por `√(H(1+H/T))`:
+```
+H⁻ ∈ [ 4,31 , 11,35 ]          H⁺ ∈ [ 9,64 , 53,02 ]
+```
 
-| versión | banda | ¿H=10 dentro? | H₀ |
-|---|---|---|---|
-| plug-in | (6,60 , 18,96) | sí | 10,444 |
-| **predictivo** | **(7,16 , 24,40)** | **sí** | 11,907 |
-
-**La banda se ensancha un 39%.** A `H=20` el predictivo es *más* indeterminado que el
-plug-in. La razón es elemental y merece decirse despacio: la corrección predictiva añade
-**varianza**, no **información sobre μ**. `SE(μ̂)` sigue siendo `σ/√T`, y el término
-`−μH` es idéntico en las dos versiones.
-
-> Se paga más capital por exactamente la misma ignorancia.
-
----
-
-## Lo que NO es nuestro
-
-El ciclo 9 desplegó tres buscadores con consultas preregistradas disjuntas —econométrico,
-finanzas de inversión, regulatorio/actuarial—, 54 consultas y 27 textos íntegros
-extraídos. Mataron tres afirmaciones del ciclo 8 y dejaron esto en pie sólo después de
-recortarlo:
-
-| ya publicado | quién |
+| H | ¿dentro? |
 |---|---|
-| `T_req = ((z+z_β)/θ)²`, con «*decades*» para θ=0,33 | **Noguer i Alonso 2026**, ec. (21) — hallado por J1 y J2 **por separado** |
-| `0 ≤ N* ≤ 1/ρ` (el techo transversal) | **Giller 2024**, ecs. (17)–(18) |
-| que fijar μ=0 es estadísticamente, no prudencialmente, justificado | **Spadafora et al. 2014** |
-| el diagnóstico de revisión al añadir un año, con σ_drift separada | **Richards, Currie & Ritchie 2012** (longevidad) |
-| `ρ(Z) = −mμ + √m(ρ(Z₁)+μ)` con μ̂ enchufada, y la condición μ≪σ | **Pitera, Schmidt & Stettner 2023** |
-| bandas del rendimiento a largo plazo que cruzan cero | **Müller & Watson 2016** · **Fama & French 2018** |
-| la brecha μH y la regla corregida por media | **Danielsson & Zigrand 2006** |
+| 3 | fuera siempre |
+| 5 · 7 · 10 · 15 · 20 · 30 | **indecidible** |
 
-Nada de eso es nuestro, y el ciclo 9 lo estableció tumbando lo que el ciclo 8 celebraba.
+**No se puede determinar qué horizontes están en la región donde nada se determina.** La
+banda cuya posición marca dónde falla la determinación tiene ella misma una posición
+indeterminada, y por el mismo mecanismo.
 
-**Lo que queda, y sólo esto:**
-
-1. La banda `H^∓` como **intervalo en el horizonte** —los dos polos del funcional, no
-   uno—, con la forma cerrada verificada 18/18.
-2. Su conjunción con `T_est` medido por un test de ruptura ⇒ **conjunto admisible vacío**,
-   y el mecanismo: *la determinación se compra con no estacionariedad*.
-3. Que el estimador predictivo **la ensancha**, con los números.
-4. La singularidad `H₀` y la divergencia `[z/(k_α/√H − Ŝ)]²`.
-
-**Y todavía no es admisible como novedad.** La regla del ciclo 8 (ninguna afirmación con
-más del 20% de literatura sin ver) sigue bloqueando: el estrato econométrico está al 47,5%
-sin ver, y el estrato regulatorio/actuarial tiene **una sola muestra**, luego no es
-estimable en absoluto. Lo que falta es una tarea acotada, no un pozo sin fondo: **una
-segunda muestra independiente del estrato regulatorio/actuarial**.
+Eso no es un fallo del teorema. Es el teorema aplicado a sí mismo, y es la forma final
+honesta del resultado.
 
 ---
 
-## Dónde no muerde
+## El defecto epistémico, escrito por quien intentó matarlo
 
-**Solvencia II, artículo 101(3):** *«With respect to existing business, it shall cover
-**only unexpected losses**.»* Ahí el requisito se define como desviación respecto a la
-media, `μ` se cancela idénticamente, y no hay problema de signo.
+> Casi toda corrección de robustez **añade** incertidumbre, y por tanto **ensancha la banda
+> y refuerza T6**. El teorema sólo puede morir por especificaciones que hagan la
+> determinación *más fácil*.
 
-T6 aplica al ES plug-in usado como **nivel** —IFRS 9, C-3 Phase II RBC, ALM de
-pensiones—, no al SCR. Esta restricción va escrita **antes** que la afirmación, no
-después de que alguien la señale.
+El falsador que T6 declaraba —«sin ruptura, `T_est=100`, banda (10,42 , 37,77), H=10
+fuera»— es real y alcanzable (HAC `L≥50` lo consigue), pero tiene un **margen del 4,0%**:
+basta multiplicar `SE(Ŝ)` por **1,14** para borrarlo, y el bootstrap por bloques da
+**×1,28 a ×1,32**. Con ese SE la banda sin ruptura es (9,04 , 51,09) y H=10 vuelve dentro.
 
----
-
-## Cómo se falsa
-
-Seis predicciones fechadas, en `protocolo/protocol.json`. Las dos que importan:
-
-- **P-4 (2046).** Recomputando cada año `T_est`, `Ŝ` y la banda, `H=10` permanece dentro
-  en las veinte lecturas anuales. **Mecanismo de fallo identificado:** exige un Sharpe
-  realizado sostenido por encima de ~1,0 sobre la ventana estacionaria completa.
-- **P-6 (2082).** En 2082, con 56 años más de datos, sigue sin determinarse.
-
-Y **el falsador propio**, escrito para que quien lo ataque empiece por ahí:
-
-> El teorema es **más débil si no hay rupturas**. Sin ruptura, `T_est = 100` años, la
-> banda es (10,42 , 37,77) y **H=10 queda fuera**: signo determinado, teorema refutado.
-
-La hipótesis que más cómoda le resultaría a un modelizador —que el mercado es un régimen
-homogéneo desde 1926— es exactamente la que mata este resultado. Es el caso que el test
-rechaza al 1% con HAC bajo los tres proxies.
+**T6 es, en la práctica, infalsificable por la única ruta que él mismo ofrecía.** Queda
+escrito aquí, porque si no cada réplica que «lo confirma» no aporta información.
 
 ---
 
-## Por qué hacen falta ~10⁴ años
+## Lo que sobrevivió a los seis ataques
 
-Porque `H=10` cae a un 4% de `H₀ = 10,444`, y `T_req = [z/(k_α/√H − Ŝ)]²` diverge ahí.
+Tres cosas, y conviene decirlas porque el resto de este documento es demolición:
 
-| H | años de régimen estacionario necesarios |
-|---|---|
-| 5 | 28 |
-| 7 | 115 |
-| 9 | ~950 |
-| **10** | **~1,2 × 10⁴** |
-| 12 | ~1.250 |
-| 20 | 73 |
+1. **El contraste central, y es robusto hacia abajo.** H=10 está dentro de la banda para
+   **toda** ventana `T_est` de 10 a 95 años. No hay elección de ventana que lo saque.
+2. **La normalidad no lo mueve.** `k_α` empírico del agregado por bootstrap estacionario:
+   **2,535–3,041** frente a 2,6652, es decir 0,95×–1,14×. Para sacar H=10 haría falta
+   bajar `k_α` un **27%**. Por la regla de 1,3× del proyecto, **ruido**. Lo–MacKinlay:
+   `VR(10a) = 0,946 ± 0,399`, indistinguible de 1.
+3. **El estimador predictivo lo ensancha un 40%**, de (6,60 , 18,96) a (7,16 , 24,40).
+   Añade varianza, no información sobre μ.
 
-**Aviso de precisión, y es importante.** A `H=10` el denominador `k_α/√H − Ŝ` vale
-**0,018**: la cifra es sensible al **quinto decimal de Ŝ**. Con `Ŝ = 0,8247` salen 11.707
-años; con Ŝ a precisión completa, 11.717. **Ese dígito no significa nada.** Lo que no
-se mueve con ningún redondeo es el orden de magnitud: **dos órdenes por encima de la
-historia disponible y tres por encima de la edad del régimen.** Citar «11.707» como si
-fuera una medición sería exactamente el tipo de falsa precisión que este proyecto ha
-retractado nueve veces.
+Y una que no es del teorema sino del método: **Jorion 1996 quedó descartado como
+precedente leyendo el escaneo original**. Su ec. (1) define `VAR = E(W) − W* = W₀(μ − R*)`
+—VaR relativo a la media, μ entra y sale— y su Figura 4 publica un error estándar
+**exactamente 0** en α=0, donde T6 publica `σ√(H/T) > 0`. La literatura fundacional del
+VaR definió el problema de modo que esta banda no pudiera aparecer.
 
-Con esa salvedad, la tabla es el contenido entero del encargo original: *un teorema que
-sólo se pueda comprobar a través de los años*. No por elección retórica — por la
-aritmética de `[z/(k_α/√H − Ŝ)]²` cerca de su polo.
+---
+
+## Por qué esto no es admisible todavía
+
+La regla del proyecto prohíbe declarar novedad con más del 20% de literatura sin ver. El
+estrato regulatorio/actuarial sigue abierto, y la segunda muestra del ciclo 10 **no lo
+cerró ni podía**: sus consultas se preregistraron *disjuntas*, que es exactamente la
+violación de homogeneidad de captura que invalidó el estimador del ciclo 9. La tasa de
+recaptura cruda fue 4/17 = 0,235.
+
+Para cerrarlo haría falta una tercera muestra con las **mismas** consultas del primer
+buscador, o sorteadas del mismo universo. No complementarias.
+
+Y hay un rival de marco que hay que confrontar antes de escribir una línea más: la
+**AAA/LCAS marzo-2005** ya reconoce que el dato histórico no determina la cola a horizonte
+largo, y actúa —*«factors for the 20-year horizon at the 2.5% and 97.5% points are
+deliberately excluded from the calibration»*—. La afirmación «ningún documento supervisor
+lo reconoce» no sobrevive.
