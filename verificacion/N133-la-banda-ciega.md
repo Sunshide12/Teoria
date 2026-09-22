@@ -160,6 +160,20 @@ Var(ΔES | μ̂) − Var(ΔES | μ≡0) = H² · 2σ²/T²
 Y la potencia del test a cinco años, medida sobre las 86 ventanas de 5 revisiones del
 registro histórico: **P(ratio > 1,3) = 0,953**.
 
+**Cierre de una duda que dejó abierta el ciclo 10.** La igualdad se calculaba sobre el
+registro entero, que contiene la ruptura de 1941 — lo cual la haría sospechosa, porque el
+teorema dice que esa ventana no es admisible. Restringida al tramo estacionario
+(1941-08 en adelante):
+
+| ámbito | T | reestimaciones | medido/teórico | razón SD |
+|---|---|---|---|---|
+| registro entero | 10 / 20 / 30 | 90 / 80 / 70 | 1,054 · 1,165 · 1,110 | 3,04 · 2,42 · 2,07 |
+| **sólo estacionario** | 10 / 20 / 30 | 75 / 65 / 55 | **1,100 · 1,029 · 1,076** | **3,65 · 3,51 · 3,31** |
+
+Las seis dentro de [0,70 , 1,40]. La igualdad **no dependía de la ruptura**, y sobre el
+tramo estacionario la razón de revisión es incluso **mayor** (3,3–3,7 frente a 2,1–3,0),
+lo que refuerza P-1 en vez de debilitarlo.
+
 ## 9. Corroboración externa que no nos buscaba
 
 La Fed publica (17-abr-2025) que los cambios interanuales del *stress capital buffer*
