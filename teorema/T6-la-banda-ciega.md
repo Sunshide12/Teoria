@@ -169,8 +169,11 @@ cerró ni podía**: sus consultas se preregistraron *disjuntas*, que es exactame
 violación de homogeneidad de captura que invalidó el estimador del ciclo 9. La tasa de
 recaptura cruda fue 4/17 = 0,235.
 
-Para cerrarlo haría falta una tercera muestra con las **mismas** consultas del primer
-buscador, o sorteadas del mismo universo. No complementarias.
+**Esa tercera muestra se tomó** (agente L1, 12 consultas sorteadas del mismo universo de 24). Resultado:
+entre **71 % y 74 %** de la literatura relevante del estrato sigue sin leerse, estable bajo tres criterios de
+inclusión (`ciclos/c10-raw/L1.md`). El estrato no cierra: no es un cuerpo pequeño de documentos sino una
+población difusa de cientos. **La regla del 20 % no es alcanzable aquí con un esfuerzo factible, y T6 no es
+admisible como novedad.** Es el cierre del proyecto, no una tarea pendiente.
 
 Y hay un rival de marco que hay que confrontar antes de escribir una línea más: la
 **AAA/LCAS marzo-2005** ya reconoce que el dato histórico no determina la cola a horizonte

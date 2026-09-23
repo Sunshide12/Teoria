@@ -101,7 +101,12 @@ aplicado a sí mismo.
 calcular**. Si el paso 0 detecta ruptura en la media, devuelve `None` en los pasos 1–6. Si
 H cae dentro de la banda, `ES_punto = None`.
 
-### 6. El protocolo
+### 6. El informe para cualquier persona
+
+`informe/investigacion-explicada.pdf` — 16 páginas sin fórmulas innecesarias: el problema,
+los hallazgos, lo que no era nuevo, y para qué sirve en la vida diaria.
+
+### 7. El protocolo
 
 `protocolo/` — seis predicciones fechadas hasta 2082, selladas con SHA-256, con puerta
 bibliográfica que corre **antes** que el test empírico. `python3 protocolo/resolve.py`
@@ -111,13 +116,14 @@ imprime PASS/FAIL/VOID/MOOT/ESPERA. P-2 pasa hoy.
 
 ## Lo que no se consiguió
 
-- **El estrato regulatorio/actuarial sigue abierto**, y el ciclo 10 demostró que no se
-  cierra con muestras disjuntas: eso rompe la homogeneidad de captura que Chapman exige.
-  Hace falta una tercera muestra con las **mismas** consultas, o sorteadas del mismo
-  universo. Es una tarea acotada, y está sin hacer.
-- **Ninguna afirmación de novedad es admisible** mientras eso siga así. T6 queda en el
-  repositorio como lo que es: una conjetura fechada, sellada y falsable, con su propia
-  demolición escrita al lado.
+- **El estrato regulatorio/actuarial no se cierra.** La tercera muestra se tomó con
+  consultas sorteadas del mismo universo (agente L1): **71–74 % de la literatura relevante
+  sigue sin leerse**, estable bajo tres criterios. No es un cuerpo pequeño de documentos
+  sino una población difusa de cientos; la regla del 20 % no es alcanzable aquí con un
+  esfuerzo factible.
+- **Por tanto, ninguna afirmación de novedad del proyecto es admisible, y es definitivo.**
+  T6 queda en el repositorio como lo que es: una conjetura fechada, sellada y falsable, con
+  su propia demolición escrita al lado.
 - **T6 es en la práctica infalsificable por la ruta que él mismo ofrece.** Casi toda
   corrección de robustez añade incertidumbre y por tanto lo refuerza. Queda escrito, porque
   si no, cada réplica que «lo confirma» no aporta información.
@@ -128,4 +134,4 @@ imprime PASS/FAIL/VOID/MOOT/ESPERA. P-2 pasa hoy.
 
 ## Para retomarlo
 
-`memoria/GRAFO.md` (159 nodos) y `memoria/MEM.ndx` (10 líneas). Nada más.
+`memoria/GRAFO.md` (160 nodos) y `memoria/MEM.ndx` (10 líneas). Nada más.

@@ -377,3 +377,7 @@ N156 → N133         lo que sí aguantó: ventana, normalidad, estimador predic
 N157 ⊣ (riesgo J1)  el precedente más plausible, descartado leyendo el original
 N158 ⊣ N145         y el supervisor SÍ lo reconoce, desde 2005
 N160 ⊣ N127         la captura-recaptura no se arregla con muestras disjuntas: se rompe
+
+N161 ≡ **EL ESTRATO REGULATORIO NO SE CIERRA — VEREDICTO FINAL DE NOVEDAD**: tercera muestra (L1) con 12 consultas **sorteadas** (semilla 20260923) del mismo universo de 24 que usaron J3 y K1, sin ver lo encontrado. Contra la unión previa (33 docs): coincidencias 5 (Curry 2021, SR 11-7, Moody's mean reversion, NAIC ORSA, Modugno 2012). Chapman: **72,7 %** sin ver (n₂=49) · **73,7 %** (sin blogs, n₂=35) · **71,4 %** (núcleo estricto, n₂=29). Estable bajo los tres criterios. Recaptura cruda 0,10–0,14, menor que la de K1 (0,235). Lectura: la literatura regulatoria/actuarial no es un conjunto pequeño y cerrado sino una población difusa de cientos de documentos (guías de proveedores, normas, papers actuariales); **la regla del 20 % no es alcanzable en este estrato con un esfuerzo factible, y por tanto ninguna afirmación de novedad del proyecto es admisible. Es el cierre del proyecto, no una tarea pendiente**   [C10·L1 ⊕ orq] w=.90
+
+N161 ⊐ N160 ⊐ N127   la cadena de captura-recaptura termina aquí: medida bien, y el estrato no cierra

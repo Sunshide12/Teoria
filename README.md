@@ -96,6 +96,9 @@ con confianza ≥ 0,90 — el último, por el agente al que se le encargó matar
 `ESTADO.md` y `verificacion/M01-funciono-el-bucle.md`. El registro de lo que no funcionó
 es la parte del método que no se puede reconstruir después.
 
-T6 **todavía no es admisible como aportación**: la regla del proyecto prohíbe declarar
-novedad mientras quede literatura sin ver por encima del 20%, y un estrato bibliográfico
-sigue abierto.
+T6 **no es admisible como aportación**: la regla del proyecto prohíbe declarar novedad
+mientras quede más del 20% de literatura relevante sin ver, y en el estrato
+regulatorio/actuarial una tercera muestra sorteada del mismo universo midió **71–74% sin
+ver**. Ese estrato no se puede cerrar con un esfuerzo factible.
+
+**Para leerlo sin fórmulas:** `informe/investigacion-explicada.pdf`.

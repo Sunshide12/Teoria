@@ -1,6 +1,6 @@
 {
   "nombre": "Protocolo de falsacion T6 — la banda ciega",
-  "version": "2.0",
+  "version": "2.1",
   "fecha_preregistro": "2026-09-22",
   "origen": "ciclo 9 del bucle multiagentico; grafo en memoria/GRAFO.md",
   "serie_congelada": {
@@ -69,7 +69,7 @@
       "Pastor & Stambaugh 2012, JF — varianza predictiva creciente con el horizonte",
       "Kerkhof, Melenberg & Schumacher 2010, JBF — riesgo de modelo, aplicado a T=1/252"
     ],
-    "estado": "CERRADA el 2026-09-22 por el ciclo 9: tres buscadores con consultas preregistradas disjuntas (econometrico, inversion, regulatorio/actuarial), 54 consultas, 27 textos integros extraidos.",
+    "estado": "CERRADA el 2026-09-22 por el ciclo 9: tres buscadores con consultas preregistradas disjuntas (econometrico, inversion, regulatorio/actuarial), 54 consultas, 27 textos integros extraidos. ACTUALIZACION 2026-09-23: tercera muestra del estrato regulatorio tomada; 71-74% sin ver; novedad inadmisible.",
     "precedentes_hallados": [
       {
         "cita": "Noguer i Alonso 2026, Markets Are Not Random, They Are Hard to Predict, arXiv:2606.08209, ec. (21)",
@@ -169,9 +169,10 @@
       "regla_nueva": "La fraccion no vista se estima POR ESTRATO. Un estrato con una sola muestra no produce una fraccion: produce la obligacion de una segunda muestra.",
       "estado_por_estrato": {
         "A_econometria_academica": "dos muestras (J1, J2): N=80, vistas 42, no vista 47.5% -> BLOQUEA",
-        "B_regulatorio_actuarial": "SEGUNDA MUESTRA TOMADA EN EL C10 (K1): n1=17, n2=20, m=4 -> Chapman 74,6, 55,8% sin ver. PERO el estimador vuelve a ser invalido, ahora POR DISENO: las consultas se preregistraron disjuntas, que es exactamente la violacion de homogeneidad que invalido el del ciclo 9. Lo interpretable es la recaptura cruda 4/17 = 0,235, frente a 0,304 (econometrico x inversion) y 0,059/0,000 (cruzados): la estratificacion era correcta. EL ESTRATO SIGUE ABIERTO, y para cerrarlo hace falta una tercera muestra con las MISMAS consultas del primer buscador, o sorteadas del mismo universo, no complementarias."
+        "B_regulatorio_actuarial": "TERCERA MUESTRA (L1, 2026-09-23): 12 consultas sorteadas con semilla 20260923 del universo de 24 que usaron J3 y K1. Contra la union previa de 33 documentos, 5 coincidencias. Chapman: 72,7% sin ver (n2=49), 73,7% (sin blogs de proveedores, n2=35), 71,4% (nucleo estricto, n2=29). EL ESTRATO NO CIERRA y la regla del 20% no es alcanzable en el con un esfuerzo factible."
       },
-      "tarea_acotada": "Para levantar el bloqueo no hace falta 'buscar mas' en abstracto: hace falta exactamente una segunda muestra independiente del estrato regulatorio/actuarial, y cerrar el estrato A."
+      "tarea_acotada": "Para levantar el bloqueo no hace falta 'buscar mas' en abstracto: hace falta exactamente una segunda muestra independiente del estrato regulatorio/actuarial, y cerrar el estrato A.",
+      "veredicto_final": "Ninguna afirmacion de novedad de este proyecto es admisible. Definitivo."
     }
   },
   "predicciones": [
@@ -280,6 +281,6 @@
     ],
     "el_defecto_epistemico": "Casi toda correccion de robustez ANADE incertidumbre y por tanto ensancha la banda y REFUERZA T6. El teorema solo puede morir por especificaciones que hagan la determinacion mas facil. Su falsador declarado tiene margen del 4,0% y se borra multiplicando SE(S) por 1,14; el bootstrap da x1,28-1,32. T6 es en la practica infalsificable por la unica ruta que el mismo ofrecia. Queda escrito para que ninguna replica que 'lo confirma' se cuente como informacion."
   },
-  "sello_sha256": "6b57ff094d66b0c94c709fcd81709f0e5d10dbb56e07b7f62987da4c4c7ba02f",
+  "sello_sha256": "aa5c22b92c65ff3ffda2f883d1b439cda8dc409cef870732c7e1ed1ccbf2abd5",
   "sello_cubre": "El SHA-256 del JSON canonico de este documento SIN el campo sello_sha256 ni sello_cubre, indent=2, ensure_ascii=False, sin ordenar claves."
 }

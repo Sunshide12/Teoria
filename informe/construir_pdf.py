@@ -434,7 +434,7 @@ p("Hay que decir con claridad dos debilidades del protocolo. La primera: las pre
 ESTRATO_TXT = "__ESTRATO__"
 if os.path.exists(EXTRA):
     ESTRATO_TXT = json.load(open(EXTRA, encoding="utf-8"))["texto"]
-h2("La tarea que quedaba abierta")
+h2("La última comprobación: ¿es nuevo?")
 p(ESTRATO_TXT)
 
 # ============================================================== GLOSARIO
